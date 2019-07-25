@@ -64,7 +64,7 @@ void Server::acceptClients(uint32_t argc, char *argv[])
 	}
 
 	clientId clientsCount = getClientsCountFromArg_(argv[0]);
-//	bots_ = getClientsCountFromArg_(argv[1]);
+	bots_ = getClientsCountFromArg_(argv[1]);
 
 	auto clientConnected = std::mem_fn(&Server::clientConnected_);
 	for (clientId i = 0; i < clientsCount; ++i)
@@ -92,7 +92,7 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work
-	players_.push_back(std::shared_ptr<Snake>(new Snake(board_, controller, {id * 2, 4})));
+	players_.push_back(std::shared_ptr<Snake>(new Snake(board_, controller, {id * 10, id * 10})));
 	controllers_.push_back(controller);
 }
 
@@ -105,6 +105,8 @@ void Server::startGame()
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
+
+	int i = 0;
 
 	while (!gameOver_)
 	{
@@ -124,10 +126,15 @@ void Server::startGame()
 				deleteSnakeFromMap(it->get()->getLocation(), board_);
 				it = players_.erase(it);
 			}
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		}
 
+		if (!(i % 4))
+			board_[rand() % 30][rand() % 30] = static_cast<uint8_t>(entityType::food);
+		++i;
+
 		std::cout << board_;
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	}
 }
 

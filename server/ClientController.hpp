@@ -4,6 +4,11 @@
 //# include "IController.hpp"
 //# include <boost/asio.hpp>
 
+enum class Key
+{
+	UP, DOWN, LEFT, RIGHT
+};
+
 class ClientController : public IController
 {
 public:
@@ -21,6 +26,7 @@ public:
 	void updateDirection(cord_t cord) override;
 
 private:
+	Key					lastPressed_;
 	direction_t*		direction_;
 	const GameBoard*	gameBoard_;
 	socketPtr sock_;

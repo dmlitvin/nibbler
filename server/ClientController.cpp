@@ -11,6 +11,17 @@ void ClientController::setGameBoard(const GameBoard& gameBoard) { gameBoard_ = &
 
 void ClientController::updateDirection(cord_t headPosition)
 {
-	*direction_ = {1, 0};
+	lastPressed_ = static_cast<Key>(rand() % 4);
+	Key lastPressed = lastPressed_;
+
+	static const std::map<Key, direction_t>	keyDirection =
+		{
+			{Key::LEFT,	{-1, 0}},
+			{Key::RIGHT,{1, 0}},
+			{Key::UP,	{0, -1}},
+			{Key::DOWN,	{0, 1}}
+		};
+	*direction_ = keyDirection.at(lastPressed);
+
 }
 
