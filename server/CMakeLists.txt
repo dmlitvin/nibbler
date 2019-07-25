@@ -4,7 +4,7 @@ project(NibblerServer)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(srcs Server.cpp tests.cpp)
+set(srcs Server.cpp ClientController.cpp Snake.cpp GameBoard.cpp tests.cpp ComputerController.cpp)
 
 find_package(Boost REQUIRED)
 

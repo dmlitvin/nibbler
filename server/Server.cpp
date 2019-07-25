@@ -1,8 +1,35 @@
 #include "Server.hpp"
 
+std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
+{
+	std::map<uint8_t, char> map = {{0, '.'}, {1, 'B'}, {2, 'F'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
+
+	for (size_t y = 0; y < board.getHeight(); y++)
+	{
+		for (size_t x = 0; x < board.getWidth(); x++)
+			stream << map[board[y][x]];
+		stream << std::endl;
+	}
+
+	return stream << std::endl;
+}
+
+void    deleteSnakeFromMap(std::vector<cord_t> snakeLocation, GameBoard & board)
+{
+	for (const auto & snakeCord : snakeLocation)
+		board[snakeCord] = static_cast<uint8_t>(entityType::empty);
+}
+
+void    putSnakeToMap(const Snake & snake, GameBoard & board)
+{
+	for (const auto snakeCord : snake.getLocation())
+		board[snakeCord] = static_cast<uint8_t>(snake.getType());
+}
+
 Server::Server() :
 	endPoint_(boost::asio::ip::tcp::v4(), SERVER_PORT),
-	acceptor_(service_, endPoint_)
+	acceptor_(service_, endPoint_),
+	board_(30, 30)
 { }
 
 /*
@@ -30,13 +57,14 @@ Server::clientId Server::getClientsCountFromArg_(char* arg)
 
 void Server::acceptClients(uint32_t argc, char *argv[])
 {
-	if (argc != 1)
+	if (argc > 2)
 	{
 		std::cerr << "Usage: ./server [players count]" << std::endl;
 		return;
 	}
 
 	clientId clientsCount = getClientsCountFromArg_(argv[0]);
+//	bots_ = getClientsCountFromArg_(argv[1]);
 
 	auto clientConnected = std::mem_fn(&Server::clientConnected_);
 	for (clientId i = 0; i < clientsCount; ++i)
@@ -61,7 +89,46 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	std::cout << "Accepted new participant with id: " << static_cast<uint32_t>(id) << std::endl;
 	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
 	sock->write_some(boost::asio::buffer(echoMsg));
-	clients_.insert({ id, sock });
+
+	IController* controller = new ClientController(sock);
+	// TODO: make_unique doesnt work
+	players_.push_back(std::shared_ptr<Snake>(new Snake(board_, controller, {id * 2, 4})));
+	controllers_.push_back(controller);
+}
+
+void Server::startGame()
+{
+	for (clientId i = 0; i < bots_; ++i)
+	{
+		IController* botController = new ComputerController();
+		players_.push_back(snakePtr(new Snake(board_, botController, {nextClientId_ * 2, 4})));
+		controllers_.push_back(botController);
+		++nextClientId_;
+	}
+
+	while (!gameOver_)
+	{
+		auto it = players_.begin();
+		while (it != players_.end())
+		{
+			auto& snake = **it;
+			auto  toDelete = snake.getLocation();
+			snake.move();
+			deleteSnakeFromMap(toDelete, board_);
+			putSnakeToMap(snake, board_);
+
+			if (**it)
+				it++;
+			else
+			{
+				deleteSnakeFromMap(it->get()->getLocation(), board_);
+				it = players_.erase(it);
+			}
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		}
+
+		std::cout << board_;
+	}
 }
 
 

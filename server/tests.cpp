@@ -79,5 +79,9 @@ int main(int argc, char *argv[])
 {
 	Server server;
 	server.acceptClients(argc - 1, argv + 1);
+	server.startGame();
+
+//	Game game{server};
+//	game.start();
 	return 0;
 }

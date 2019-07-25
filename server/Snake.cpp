@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Snake.hpp"
 
 unsigned    Snake::snakeCount = 0;
@@ -7,6 +8,7 @@ entityType  Snake::nextSnakeType() { return static_cast<entityType>(snakeCount +
 Snake::Snake(const GameBoard & gameBoard, IController* controller, cord_t startPosition)
 : controller_(controller), gameBoard_(gameBoard)
 {
+	std::cout << "X == " << (int)startPosition.first << " Y == " << (int)startPosition.second << std::endl;
     int initPosX = startPosition.first,
         initPosY = startPosition.second,
         directionX = direction_.first,
@@ -23,7 +25,7 @@ Snake::Snake(const GameBoard & gameBoard, IController* controller, cord_t startP
     snakeCount++;
 }
 
-Snake::~Snake() { snakeCount--; delete controller_; }
+Snake::~Snake() { snakeCount--; /* delete controller_ ; */ }
 
 unsigned        Snake::getScore()   const { return score_; }
 unsigned        Snake::getSpeed()   const { return speed_; }
