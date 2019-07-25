@@ -1,7 +1,8 @@
 #pragma once
 
 #include <vector>
-
+#include <map>
+#include <iostream>
 enum class entityType
 {
     empty, block, food
@@ -37,3 +38,5 @@ private:
     matrix_t    matrix;
 
 };
+
+std::ostream&   operator<<(std::ostream& stream, const GameBoard& board);

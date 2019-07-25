@@ -1,19 +1,5 @@
 #include "Server.hpp"
 
-std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
-{
-	std::map<uint8_t, char> map = {{0, '.'}, {1, 'B'}, {2, 'F'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
-
-	for (size_t y = 0; y < board.getHeight(); y++)
-	{
-		for (size_t x = 0; x < board.getWidth(); x++)
-			stream << map[board[y][x]];
-		stream << std::endl;
-	}
-
-	return stream << std::endl;
-}
-
 void    deleteSnakeFromMap(std::vector<cord_t> snakeLocation, GameBoard & board)
 {
 	for (const auto & snakeCord : snakeLocation)
@@ -101,13 +87,14 @@ void Server::startGame()
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
-		players_.push_back(snakePtr(new Snake(board_, botController, {nextClientId_ * 2, 4})));
+		players_.push_back(snakePtr(new Snake(board_, botController, {nextClientId_ * 4, 8})));
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
 
 	int i = 0;
 
+	fruitGenRate = (players_.size() / 2) * 3;
 	while (!gameOver_)
 	{
 		auto it = players_.begin();
@@ -128,8 +115,8 @@ void Server::startGame()
 			}
 		}
 
-		if (!(i % 4))
-			board_[rand() % 30][rand() % 30] = static_cast<uint8_t>(entityType::food);
+		if (!(i % fruitGenRate))
+			board_[rand() % board_.getHeight()][rand() % board_.getWidth()] = static_cast<uint8_t>(entityType::food);
 		++i;
 
 		std::cout << board_;

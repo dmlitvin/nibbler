@@ -30,6 +30,8 @@ public:
 
 private:
 
+	int fruitGenRate = 0;
+
 	void clientConnected_(socketPtr sock, clientId id, const boost::system::error_code& err);
 	clientId getClientsCountFromArg_(char* arg);
 

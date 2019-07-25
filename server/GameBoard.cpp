@@ -11,3 +11,17 @@ const std::vector<uint8_t>& GameBoard::operator[](size_t index) const   { return
 
 uint8_t&        GameBoard::operator[](cord_t index)         { return matrix[index.second][index.first]; }
 const uint8_t&  GameBoard::operator[](cord_t index) const   { return matrix[index.second][index.first]; }
+
+std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
+{
+	std::map<uint8_t, char> map = {{0, '.'}, {1, 'B'}, {2, 'F'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
+
+	for (size_t y = 0; y < board.getHeight(); y++)
+	{
+		for (size_t x = 0; x < board.getWidth(); x++)
+			stream << map[board[y][x]];
+		stream << std::endl;
+	}
+
+	return stream << std::endl;
+}
