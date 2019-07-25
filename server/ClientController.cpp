@@ -34,7 +34,7 @@ void ClientController::run()
 	lastPressed_ = Key::RIGHT;
 	while (true)
 	{
-		lastReadBytes = sock_->read_some(boost::asio::buffer(buff, BUFF_SIZE), err);
+		lastReadBytes = sock_->read_some(boost::asio::buffer(buff, 1), err);
 		if (err)
 		{
 			std::cerr << "Couldn't read from client or client closed connection." << std::endl;

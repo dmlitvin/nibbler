@@ -118,7 +118,7 @@ void Server::startGame()
 		if (!(i % fruitGenRate))
 			board_[rand() % board_.getHeight()][rand() % board_.getWidth()] = static_cast<uint8_t>(entityType::food);
 		++i;
-		system("clear");
+//		system("clear");
 		std::cout << board_;
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
