@@ -24,6 +24,7 @@ public:
 	void setDirectionControl(direction_t &direction) override;
 	void setGameBoard(const GameBoard &board) override;
 	void updateDirection(cord_t cord) override;
+	void run();
 
 private:
 	Key					lastPressed_;

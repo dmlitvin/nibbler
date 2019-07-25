@@ -5,6 +5,7 @@
 # include <thread>
 # include <memory>
 # include <mutex>
+# include <thread>
 # include <map>
 
 # include "Snake.hpp"

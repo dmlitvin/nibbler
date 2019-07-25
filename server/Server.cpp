@@ -43,7 +43,7 @@ Server::clientId Server::getClientsCountFromArg_(char* arg)
 
 void Server::acceptClients(uint32_t argc, char *argv[])
 {
-	if (argc > 2)
+	if (argc != 2)
 	{
 		std::cerr << "Usage: ./server [players count]" << std::endl;
 		return;
@@ -118,10 +118,9 @@ void Server::startGame()
 		if (!(i % fruitGenRate))
 			board_[rand() % board_.getHeight()][rand() % board_.getWidth()] = static_cast<uint8_t>(entityType::food);
 		++i;
-
+		system("clear");
 		std::cout << board_;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }
 

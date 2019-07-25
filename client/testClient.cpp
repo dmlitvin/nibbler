@@ -27,10 +27,13 @@ void on_read(io_service& service, socket_ptr sock, uint8_t* buff, uint32_t& offs
 //	sock->async_read_some(buffer(buff + offset, buff_size - offset - 1), std::bind(on_read, std::ref(service), sock, buff, std::ref(offset), std::placeholders::_1, std::placeholders::_2));
 };
 
-int		main()
+int		main(int argc, char **argv)
 {
 	io_service service;
-	ip::tcp::endpoint ep(ip::address::from_string("127.0.0.1"), 4242);
+	ip::tcp::resolver resolver(service);
+	ip::tcp::resolver::query query(argv[1], "4242");
+	ip::tcp::resolver::iterator iter = resolver.resolve( query);
+	ip::tcp::endpoint ep = *iter;
 	socket_ptr sock(new ip::tcp::socket(service));
 	boost::system::error_code error;
 	uint8_t buff[buff_size];
@@ -49,6 +52,7 @@ int		main()
 			key[0] = getch();
 			if (key[0] != -1)
 			{
+				sock->write_some(buffer(key, 1));
 				clear();
 				mvprintw(0, 0, key);
 			}
