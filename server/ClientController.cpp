@@ -30,10 +30,18 @@ void ClientController::run()
 	boost::system::error_code err;
 	size_t lastReadBytes = 0;
 	const size_t BUFF_SIZE = 1;
-	char buff[BUFF_SIZE];
+	char         buff[BUFF_SIZE];
+//	uint8_t      map[gameBoard_->getHeight() * gameBoard_->getWidth()];
+
 	lastPressed_ = Key::RIGHT;
+
 	while (true)
 	{
+	    // TODO: map buffer copying
+//	    for (size_t y = 0; y < gameBoard_->getHeight(); y++)
+//	        for (size_t x = 0; x < gameBoard_->getWidth(); x++)
+//	            map[y * gameBoard_->getWidth() + x] = gameBoard_->operator[](y)[x];
+
 		lastReadBytes = sock_->read_some(boost::asio::buffer(buff, 1), err);
 		if (err)
 		{

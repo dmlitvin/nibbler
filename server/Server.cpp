@@ -76,6 +76,10 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
 	sock->write_some(boost::asio::buffer(echoMsg));
 
+	// TODO: sending map size
+//	std::string mapSizeMsg(std::to_string(board_.getWidth() + ' ' + board_.getHeight()));
+//	sock->write_some(mapSizeMsg);
+
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work
 	players_.push_back(std::shared_ptr<Snake>(new Snake(board_, controller, {id * 10, id * 10})));
