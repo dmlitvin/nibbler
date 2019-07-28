@@ -8,7 +8,6 @@ entityType  Snake::nextSnakeType() { return static_cast<entityType>(snakeCount +
 Snake::Snake(const GameBoard & gameBoard, IController* controller, cord_t startPosition)
 : controller_(controller), gameBoard_(gameBoard)
 {
-	std::cout << "X == " << (int)startPosition.first << " Y == " << (int)startPosition.second << std::endl;
     int initPosX = startPosition.first,
         initPosY = startPosition.second,
         directionX = direction_.first,
