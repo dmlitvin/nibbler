@@ -1,6 +1,6 @@
 #include "Server.hpp"
 
-void    deleteSnakeFromMap(std::vector<cord_t> snakeLocation, GameBoard & board)
+void    deleteSnakeFromMap(const std::vector<cord_t> & snakeLocation, GameBoard & board)
 {
 	for (const auto & snakeCord : snakeLocation)
 		board[snakeCord] = static_cast<uint8_t>(entityType::empty);
@@ -99,6 +99,7 @@ void Server::startGame()
 	int i = 0;
 
 	fruitGenRate = (players_.size() / 2) * 3;
+
 	while (!gameOver_)
 	{
 		auto it = players_.begin();
@@ -127,5 +128,3 @@ void Server::startGame()
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }
-
-

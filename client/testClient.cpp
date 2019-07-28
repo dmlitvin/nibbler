@@ -38,7 +38,8 @@ int		main(int argc, char **argv)
 	boost::system::error_code error;
 	uint8_t buff[buff_size];
 	uint32_t offset = 0;
-	sock->async_connect(ep, [&buff, &service, &sock, &offset](const boost::system::error_code& ec) {
+	sock->async_connect(ep, [&buff, &service, &sock, &offset](const boost::system::error_code& ec)
+	{
 		std::memset(buff, 0, buff_size);
 		sock->async_read_some(buffer(buff), std::bind(on_read, std::ref(service), sock, buff, std::ref(offset), std::placeholders::_1, std::placeholders::_2));
 		initscr();
