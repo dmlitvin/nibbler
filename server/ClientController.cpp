@@ -3,7 +3,6 @@
 ClientController::ClientController(socketPtr sock) :
 	sock_(sock)
 {
-
 }
 
 void ClientController::setDirectionControl(direction_t& direction) { direction_ = &direction; }
@@ -50,19 +49,8 @@ void ClientController::sendMap_(boost::system::error_code& err)
 	auto mapIt = mapBuff.begin();
 	system("clear");
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
-	{
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
-		{
 			*mapIt = (*gameBoard_)[{j, i}];
-			if (!*mapIt)
-				std::cout << ".";
-			else if (*mapIt == 2)
-				std::cout << "F";
-			else
-				std::cout << "o";
-		}
-		std::cout << std::endl;
-	}
 	sock_->write_some(boost::asio::buffer(mapBuff), err);
 	if (processErrors(err))
 		return;
@@ -70,11 +58,10 @@ void ClientController::sendMap_(boost::system::error_code& err)
 
 void ClientController::readKey_(boost::system::error_code& err)
 {
-	static constexpr size_t BUFF_SIZE = 1;
-	static size_t lastReadBytes = 0;
-	static char         buff;
+	static size_t	lastReadBytes = 0;
+	static char		buff;
 
-	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, 1), err);
+	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, sizeof(buff)), err);
 	if (processErrors(err))
 		return;
 	if (lastReadBytes)

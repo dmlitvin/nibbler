@@ -9,7 +9,6 @@ set(srcs testClient.cpp)
 find_package(Boost REQUIRED)
 find_package(Curses REQUIRED)
 
-
 add_executable(${PROJECT_NAME} ${srcs})
 
 target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})

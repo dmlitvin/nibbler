@@ -105,8 +105,8 @@ void Server::startGame()
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
-	int i = 0;
 
+	int fruitAccumulator = 0;
 	fruitGenRate = (1.0/ static_cast<double>(players_.size())) * 100.0;
 
 	while (!gameOver_)
@@ -129,12 +129,12 @@ void Server::startGame()
 			}
 		}
 //		std::cout << *board_ << std::endl;
-		if (!(i % fruitGenRate))
+		if (!(fruitAccumulator % fruitGenRate))
 			(*board_)
 			[rand() % board_->getHeight()]
 			[rand() % board_->getWidth()]
 			= static_cast<uint8_t>(entityType::food);
-		++i;
+		++fruitAccumulator;
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }
