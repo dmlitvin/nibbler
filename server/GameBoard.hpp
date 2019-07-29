@@ -5,7 +5,7 @@
 #include <iostream>
 enum class entityType
 {
-    empty, block, food
+    empty, food, block
 };
 
 using cord_t = std::pair<uint8_t, uint8_t>;
