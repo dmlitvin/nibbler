@@ -47,7 +47,6 @@ void ClientController::sendMap_(boost::system::error_code& err)
 		mapBuff.resize(gameBoard_->getHeight() * gameBoard_->getWidth());
 
 	auto mapIt = mapBuff.begin();
-	system("clear");
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
