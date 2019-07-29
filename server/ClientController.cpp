@@ -3,8 +3,7 @@
 ClientController::ClientController(socketPtr sock) :
 	sock_(sock)
 {
-	std::thread th{&ClientController::run, this};
-	th.detach();
+
 }
 
 void ClientController::setDirectionControl(direction_t& direction) { direction_ = &direction; }
@@ -28,47 +27,78 @@ void ClientController::updateDirection(cord_t headPosition)
 void ClientController::run()
 {
 	boost::system::error_code err;
-	size_t lastReadBytes = 0;
-	const size_t BUFF_SIZE = 1;
-	char         buff[BUFF_SIZE];
-//	uint8_t      map[gameBoard_->getHeight() * gameBoard_->getWidth()];
-
 	lastPressed_ = Key::RIGHT;
 
 	while (true)
 	{
-	    // TODO: map buffer copying
-//	    for (size_t y = 0; y < gameBoard_->getHeight(); y++)
-//	        for (size_t x = 0; x < gameBoard_->getWidth(); x++)
-//	            map[y * gameBoard_->getWidth() + x] = gameBoard_->operator[](y)[x];
-
-		lastReadBytes = sock_->read_some(boost::asio::buffer(buff, 1), err);
+		sendMap_(err);
 		if (err)
+			break;
+		readKey_(err);
+		if (err)
+			break;
+	}
+}
+
+void ClientController::sendMap_(boost::system::error_code& err)
+{
+	static std::vector<uint8_t> mapBuff;
+
+	if (mapBuff.empty())
+		mapBuff.resize(gameBoard_->getHeight() * gameBoard_->getWidth());
+
+	auto mapIt = mapBuff.begin();
+	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
+		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
+			*mapIt = (*gameBoard_)[{j, i}];
+
+	sock_->write_some(boost::asio::buffer(mapBuff), err);
+	if (processErrors(err))
+		return;
+
+	if (processErrors(err))
+		return;
+}
+
+void ClientController::readKey_(boost::system::error_code& err)
+{
+	static constexpr size_t BUFF_SIZE = 1;
+	static size_t lastReadBytes = 0;
+	static char         buff;
+
+	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, 1), err);
+	if (processErrors(err))
+		return;
+	if (lastReadBytes)
+	{
+		switch(buff)
 		{
-			std::cerr << "Couldn't read from client or client closed connection." << std::endl;
-			sock_->close();
-			return;
-		}
-		if (lastReadBytes)
-		{
-			switch(buff[0])
-			{
-				case 'a':
-					lastPressed_ = Key::LEFT;
-					break;
-				case 's':
-					lastPressed_ = Key::DOWN;
-					break;
-				case 'd':
-					lastPressed_ = Key::RIGHT;
-					break;
-				case 'w':
-					lastPressed_ = Key::UP;
-					break;
-				default:
-					std::cout << "Unknown key" << std::endl;
-			}
+			case 'a':
+				lastPressed_ = Key::LEFT;
+				break;
+			case 's':
+				lastPressed_ = Key::DOWN;
+				break;
+			case 'd':
+				lastPressed_ = Key::RIGHT;
+				break;
+			case 'w':
+				lastPressed_ = Key::UP;
+				break;
+			default:
+				std::cout << "Unknown key" << std::endl;
 		}
 	}
+}
+
+bool ClientController::processErrors(boost::system::error_code &err)
+{
+	if (err)
+	{
+		std::cerr << "Couldn't read from client or client closed connection." << std::endl;
+		sock_->close();
+		return true;
+	}
+	return false;
 }
 

@@ -12,21 +12,6 @@ using namespace boost::asio;
 
 using socket_ptr = std::shared_ptr<ip::tcp::socket>;
 
-void on_read(io_service& service, socket_ptr sock, uint8_t* buff, uint32_t& offset, const boost::system::error_code& ec, size_t bytesRead)
-{
-	if (ec)
-	{
-		std::cout << ec.message() << std::endl;
-		return;
-	}
-	if (std::find(buff + offset, buff + offset + bytesRead, '\n') < buff + offset + bytesRead)
-	{
-		return;
-	}
-//	offset += bytesRead;
-//	sock->async_read_some(buffer(buff + offset, buff_size - offset - 1), std::bind(on_read, std::ref(service), sock, buff, std::ref(offset), std::placeholders::_1, std::placeholders::_2));
-};
-
 int		main(int argc, char **argv)
 {
 	io_service service;
@@ -41,28 +26,48 @@ int		main(int argc, char **argv)
 	sock->async_connect(ep, [&buff, &service, &sock, &offset](const boost::system::error_code& ec)
 	{
 		std::memset(buff, 0, buff_size);
-		sock->async_read_some(buffer(buff), std::bind(on_read, std::ref(service), sock, buff, std::ref(offset), std::placeholders::_1, std::placeholders::_2));
 		initscr();
-
 		curs_set(0);
 		timeout(5);
 		char key[2];
 		key[1] = 0;
-		key[0] = -1;
+		key[0] = 'd';
+		char map[30 * 30];
+		boost::system::error_code err;
 		while (true)
 		{
-			key[0] = getch();
-			if (key[0] != -1)
+			sock->read_some(buffer(map, 30 * 30), err);
+			if (err)
 			{
-				sock->write_some(buffer(key, 1));
-				clear();
-				mvprintw(0, 0, key);
+				std::cout << "err " << err.message() << std::endl;
+				return;
 			}
+			for (int i = 0; i < 30; ++i)
+			{
+				for (int j = 0; j < 30; ++j)
+				{
+					char toPrintBuff[2];
+					toPrintBuff[0] = map[(i * 30) + j];
+					toPrintBuff[1] = 0;
+					if (!toPrintBuff[0])
+						mvprintw(i, j, ".\0");
+					else if (toPrintBuff[0] == 2)
+						mvprintw(i, j, "F\0");
+					else
+						mvprintw(i, j, "o\0");
+				}
+			}
+			char prevKey = key[0];
+			key[0] = getch();
+			if (key[0] == -1)
+				key[0] = prevKey;
+			sock->write_some(buffer(key, 1));
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+			clear();
 		}
 		endwin();
 	});
 	service.run();
-	std::cout << buff << std::endl;
 #ifdef _WIN32
 	system("pause");
 #endif

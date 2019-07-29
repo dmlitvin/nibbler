@@ -33,11 +33,6 @@ Server::clientId Server::getClientsCountFromArg_(char* arg)
 		std::cerr << "Number of clients is too big" << std::endl;
 		return 0;
 	}
-	else if (clientsCount == std::numeric_limits<decltype(clientsCount)>::min())
-	{
-		std::cerr << "Number of clients is too small" << std::endl;
-		return 0;
-	}
 	return clientsCount;
 }
 
@@ -72,9 +67,9 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 		return;
 	}
 	std::lock_guard<std::mutex> dataLock(clientsProtect_);
-	std::cout << "Accepted new participant with id: " << static_cast<uint32_t>(id) << std::endl;
-	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
-	sock->write_some(boost::asio::buffer(echoMsg));
+//	std::cout << "Accepted new participant with id: " << static_cast<uint32_t>(id) << std::endl;
+//	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
+//	sock->write_some(boost::asio::buffer(echoMsg));
 
 	// TODO: sending map size
 //	std::string mapSizeMsg(std::to_string(board_.getWidth() + ' ' + board_.getHeight()));
@@ -88,6 +83,11 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 
 void Server::startGame()
 {
+	for (size_t i = 0; i < players_.size(); ++i)
+	{
+		std::thread th{&ClientController::run, reinterpret_cast<ClientController*>(players_[i]->getController())};
+		th.detach();
+	}
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
@@ -95,10 +95,9 @@ void Server::startGame()
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
-
 	int i = 0;
 
-	fruitGenRate = (players_.size() / 2) * 3;
+	fruitGenRate = (1 / static_cast<double>(players_.size())) * 100;
 
 	while (!gameOver_)
 	{
@@ -119,12 +118,10 @@ void Server::startGame()
 				it = players_.erase(it);
 			}
 		}
-
+//		std::cout << board_ << std::endl;
 		if (!(i % fruitGenRate))
 			board_[rand() % board_.getHeight()][rand() % board_.getWidth()] = static_cast<uint8_t>(entityType::food);
 		++i;
-//		system("clear");
-		std::cout << board_;
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }

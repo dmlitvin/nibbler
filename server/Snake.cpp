@@ -57,3 +57,8 @@ void    Snake::move()
             location_.pop_back();
     }
 }
+
+IController *Snake::getController()
+{
+	return controller_;
+}

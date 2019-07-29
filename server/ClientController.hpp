@@ -27,6 +27,11 @@ public:
 	void run();
 
 private:
+
+	void				sendMap_(boost::system::error_code& err);
+	void				readKey_(boost::system::error_code& err);
+
+	bool				processErrors(boost::system::error_code& err);
 	Key					lastPressed_;
 	direction_t*		direction_;
 	const GameBoard*	gameBoard_;

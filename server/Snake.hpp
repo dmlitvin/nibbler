@@ -13,6 +13,7 @@ struct Snake
     operator        bool()      const;
 
     virtual void    move();
+    virtual IController* getController();
 
     const std::vector<cord_t>&  getLocation() const;
 
