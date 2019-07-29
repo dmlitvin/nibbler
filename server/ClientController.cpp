@@ -42,15 +42,22 @@ void ClientController::run()
 void ClientController::sendMap_(boost::system::error_code& err)
 {
 	static std::vector<uint8_t> mapBuff;
+	static std::string ackBuff;
 
 	if (mapBuff.empty())
 		mapBuff.resize(gameBoard_->getHeight() * gameBoard_->getWidth());
-
+	if (ackBuff.empty())
+		ackBuff.resize(2);
 	auto mapIt = mapBuff.begin();
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
 	sock_->write_some(boost::asio::buffer(mapBuff), err);
+	if (processErrors(err))
+		return;
+	sock_->read_some(boost::asio::buffer(ackBuff));
+	if (ackBuff != "ok")
+		std::cerr << "ackBuff != ok" << std::endl;
 	if (processErrors(err))
 		return;
 }

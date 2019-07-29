@@ -98,6 +98,7 @@ void Server::startGame()
 		std::thread th{&ClientController::run, reinterpret_cast<ClientController*>(players_[i]->getController())};
 		th.detach();
 	}
+	std::cout << players_.size() << std::endl;
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
@@ -107,7 +108,7 @@ void Server::startGame()
 	}
 
 	int fruitAccumulator = 0;
-	fruitGenRate = (1.0/ static_cast<double>(players_.size())) * 100.0;
+	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
 
 	while (!gameOver_)
 	{

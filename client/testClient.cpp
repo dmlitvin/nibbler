@@ -51,6 +51,7 @@ int		main(int argc, char **argv)
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
+			sock->write_some(buffer("ok", 2));
 			for (int i = 0; i < mapHeight; ++i)
 			{
 				for (int j = 0; j < mapWidth; ++j)
