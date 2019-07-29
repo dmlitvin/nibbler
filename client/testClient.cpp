@@ -21,11 +21,14 @@ int		main(int argc, char **argv)
 	ip::tcp::endpoint ep = *iter;
 	socket_ptr sock(new ip::tcp::socket(service));
 	boost::system::error_code error;
-	uint8_t buff[buff_size];
 	uint32_t offset = 0;
-	sock->async_connect(ep, [&buff, &service, &sock, &offset](const boost::system::error_code& ec)
+	sock->async_connect(ep, [&service, &sock, &offset](const boost::system::error_code& ec)
 	{
-		std::memset(buff, 0, buff_size);
+		if (ec)
+		{
+			std::cerr << "Error: Couldn't connect to server" << std::endl;
+			return;
+		}
 		initscr();
 		curs_set(0);
 		timeout(5);
@@ -68,7 +71,7 @@ int		main(int argc, char **argv)
 			if (key[0] == -1)
 				key[0] = prevKey;
 			sock->write_some(buffer(key, 1));
-			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+//			std::this_thread::sleep_for(std::chrono::milliseconds(70));
 			clear();
 		}
 		endwin();
