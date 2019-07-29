@@ -19,13 +19,14 @@ public:
 	using clientId = uint16_t;
 //	using clientSet = std::map<clientId, socketPtr>;
 	using snakePtr = std::shared_ptr<Snake>;
+	using boardPtr = std::shared_ptr<GameBoard>;
 
-	Server();
+	Server(char *argv[]);
 	Server(const Server &rhs) = delete;
 	Server &operator=(const Server &rhs) = delete;
 	~Server() = default;
 
-	void acceptClients(uint32_t argc, char *argv[]);
+	void acceptClients(char *argv[]);
 
 	void startGame();
 
@@ -34,7 +35,7 @@ private:
 	int fruitGenRate = 0;
 
 	void clientConnected_(socketPtr sock, clientId id, const boost::system::error_code& err);
-	clientId getClientsCountFromArg_(char* arg);
+	uint16_t getNumberFromArg_(char* arg);
 
 	constexpr static uint16_t		SERVER_PORT = 4242;
 	constexpr static char			MSG_END = '\n';
@@ -52,5 +53,5 @@ private:
 
 	bool gameOver_ = false;
 	std::vector<snakePtr> players_;
-	GameBoard board_;
+	boardPtr board_ = nullptr;
 };

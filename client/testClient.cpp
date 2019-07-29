@@ -32,22 +32,28 @@ int		main(int argc, char **argv)
 		char key[2];
 		key[1] = 0;
 		key[0] = 'd';
-		char map[30 * 30];
+
+		uint16_t mapStats[2];
+		sock->read_some(buffer(mapStats));
+
+		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
+
+		char* map = new char[mapHeight * mapWidth];
 		boost::system::error_code err;
 		while (true)
 		{
-			sock->read_some(buffer(map, 30 * 30), err);
+			sock->read_some(buffer(map, mapWidth * mapHeight), err);
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
-			for (int i = 0; i < 30; ++i)
+			for (int i = 0; i < mapHeight; ++i)
 			{
-				for (int j = 0; j < 30; ++j)
+				for (int j = 0; j < mapWidth; ++j)
 				{
 					char toPrintBuff[2];
-					toPrintBuff[0] = map[(i * 30) + j];
+					toPrintBuff[0] = map[(i * mapWidth) + j];
 					toPrintBuff[1] = 0;
 					if (!toPrintBuff[0])
 						mvprintw(i, j, ".\0");

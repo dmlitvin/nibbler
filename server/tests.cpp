@@ -77,11 +77,15 @@
 
 int main(int argc, char *argv[])
 {
-	Server server;
-	server.acceptClients(argc - 1, argv + 1);
+	if (argc != 5)
+	{
+		std::cerr << "Usage: ./server [map_height] [map_width] [players count] [bots count]" << std::endl;
+		return 1;
+	}
+
+	Server server{argv + 1};
+	server.acceptClients(argv + 3);
 	server.startGame();
 
-//	Game game{server};
-//	game.start();
 	return 0;
 }
