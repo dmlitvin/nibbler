@@ -80,10 +80,10 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 //	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
 //	sock->write_some(boost::asio::buffer(echoMsg));
 
-	static uint16_t mapStats[2];
-	mapStats[0] = board_->getHeight();
-	mapStats[1] = board_->getWidth();
-	sock->write_some(boost::asio::buffer(mapStats));
+//	static uint16_t mapStats[2];
+//	mapStats[0] = board_->getHeight();
+//	mapStats[1] = board_->getWidth();
+//	sock->write_some(boost::asio::buffer(mapStats, 4));
 
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work

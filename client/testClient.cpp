@@ -36,10 +36,10 @@ int		main(int argc, char **argv)
 		key[1] = 0;
 		key[0] = 'd';
 
-		uint16_t mapStats[2];
-		sock->read_some(buffer(mapStats));
-
-		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
+//		uint16_t mapStats[2];
+//		sock->read_some(buffer(mapStats));
+//		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
+		uint16_t mapHeight = 30, mapWidth = 30;
 
 		char* map = new char[mapHeight * mapWidth];
 		boost::system::error_code err;
