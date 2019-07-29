@@ -1,5 +1,8 @@
 #include "ClientController.hpp"
 
+
+extern std::mutex boardLock;
+
 ClientController::ClientController(socketPtr sock) :
 	sock_(sock)
 {
@@ -48,16 +51,22 @@ void ClientController::sendMap_(boost::system::error_code& err)
 		mapBuff.resize(gameBoard_->getHeight() * gameBoard_->getWidth());
 	if (ackBuff.empty())
 		ackBuff.resize(2);
+
+	boardLock.lock();
 	auto mapIt = mapBuff.begin();
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
+	boardLock.unlock();
 	sock_->write_some(boost::asio::buffer(mapBuff), err);
 	if (processErrors(err))
 		return;
+	std::cout << "write some" << std::endl;
+
 	sock_->read_some(boost::asio::buffer(ackBuff));
 	if (ackBuff != "ok")
 		std::cerr << "ackBuff != ok" << std::endl;
+	std::cout << "read ack" << std::endl;
 	if (processErrors(err))
 		return;
 }
@@ -70,6 +79,7 @@ void ClientController::readKey_(boost::system::error_code& err)
 	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, sizeof(buff)), err);
 	if (processErrors(err))
 		return;
+	std::cout << "read key" << std::endl;
 	if (lastReadBytes)
 	{
 		switch(buff)

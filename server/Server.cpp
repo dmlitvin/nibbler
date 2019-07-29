@@ -1,5 +1,7 @@
 #include "Server.hpp"
 
+std::mutex boardLock;
+
 void    deleteSnakeFromMap(const std::vector<cord_t> & snakeLocation, GameBoard & board)
 {
 	for (const auto & snakeCord : snakeLocation)
@@ -80,10 +82,10 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 //	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
 //	sock->write_some(boost::asio::buffer(echoMsg));
 
-//	static uint16_t mapStats[2];
-//	mapStats[0] = board_->getHeight();
-//	mapStats[1] = board_->getWidth();
-//	sock->write_some(boost::asio::buffer(mapStats, 4));
+	static uint16_t mapStats[2];
+	mapStats[0] = board_->getHeight();
+	mapStats[1] = board_->getWidth();
+	sock->write_some(boost::asio::buffer(mapStats, 4));
 
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work
@@ -112,29 +114,31 @@ void Server::startGame()
 
 	while (!gameOver_)
 	{
-		auto it = players_.begin();
-		while (it != players_.end())
-		{
-			auto& snake = **it;
-			auto  toDelete = snake.getLocation();
-			snake.move();
-			deleteSnakeFromMap(toDelete, *board_);
-			putSnakeToMap(snake, *board_);
+		boardLock.lock();
+//		auto it = players_.begin();
+//		while (it != players_.end())
+//		{
+//			auto& snake = **it;
+//			auto  toDelete = snake.getLocation();
+//			snake.move();
+//			deleteSnakeFromMap(toDelete, *board_);
+//			putSnakeToMap(snake, *board_);
+//
+//			if (**it)
+//				it++;
+//			else
+//			{
+//				deleteSnakeFromMap(it->get()->getLocation(), *board_);
+//				it = players_.erase(it);
+//			}
+//		}
 
-			if (**it)
-				it++;
-			else
-			{
-				deleteSnakeFromMap(it->get()->getLocation(), *board_);
-				it = players_.erase(it);
-			}
-		}
 //		std::cout << *board_ << std::endl;
 		if (!(fruitAccumulator % fruitGenRate))
-			(*board_)
-			[rand() % board_->getHeight()]
+			(*board_)[rand() % board_->getHeight()]
 			[rand() % board_->getWidth()]
 			= static_cast<uint8_t>(entityType::food);
+		boardLock.unlock();
 		++fruitAccumulator;
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
