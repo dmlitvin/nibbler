@@ -115,23 +115,23 @@ void Server::startGame()
 	while (!gameOver_)
 	{
 		boardLock.lock();
-//		auto it = players_.begin();
-//		while (it != players_.end())
-//		{
-//			auto& snake = **it;
-//			auto  toDelete = snake.getLocation();
-//			snake.move();
-//			deleteSnakeFromMap(toDelete, *board_);
-//			putSnakeToMap(snake, *board_);
-//
-//			if (**it)
-//				it++;
-//			else
-//			{
-//				deleteSnakeFromMap(it->get()->getLocation(), *board_);
-//				it = players_.erase(it);
-//			}
-//		}
+		auto it = players_.begin();
+		while (it != players_.end())
+		{
+			auto& snake = **it;
+			auto  toDelete = snake.getLocation();
+			snake.move();
+			deleteSnakeFromMap(toDelete, *board_);
+			putSnakeToMap(snake, *board_);
+
+			if (**it)
+				it++;
+			else
+			{
+				deleteSnakeFromMap(it->get()->getLocation(), *board_);
+				it = players_.erase(it);
+			}
+		}
 
 //		std::cout << *board_ << std::endl;
 		if (!(fruitAccumulator % fruitGenRate))
@@ -140,6 +140,6 @@ void Server::startGame()
 			= static_cast<uint8_t>(entityType::food);
 		boardLock.unlock();
 		++fruitAccumulator;
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::this_thread::sleep_for(std::chrono::milliseconds(150));
 	}
 }

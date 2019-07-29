@@ -20,7 +20,7 @@ public:
 	using snakePtr = std::shared_ptr<Snake>;
 	using boardPtr = std::shared_ptr<GameBoard>;
 
-	Server(char *argv[]);
+	explicit Server(char *argv[]);
 	Server(const Server &rhs) = delete;
 	Server &operator=(const Server &rhs) = delete;
 	~Server() = default;

@@ -14,7 +14,7 @@ const uint8_t&  GameBoard::operator[](cord_t index) const   { return matrix[inde
 
 std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
 {
-	std::map<uint8_t, char> map = {{0, '.'}, {1, 'B'}, {2, 'F'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
+	std::map<uint8_t, char> map = {{0, '.'}, {1, 'F'}, {2, 'B'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
 
 	for (size_t y = 0; y < board.getHeight(); y++)
 	{
