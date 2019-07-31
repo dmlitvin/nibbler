@@ -68,10 +68,10 @@ int		main(int argc, char **argv)
 						mvprintw(i, j, "o\0");
 				}
 			}
-			char prevKey = key[0];
+//			char prevKey = key[0];
 			key[0] = getch();
 			if (key[0] == -1)
-				key[0] = prevKey;
+				key[0] = 'c';
 			sock->write_some(buffer(key, 1));
 
 			static std::string buff;
