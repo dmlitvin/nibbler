@@ -33,7 +33,7 @@ Snake::operator bool()              const { return isAlive; }
 
 const std::vector<cord_t>&  Snake::getLocation() const      { return location_; }
 
-void    Snake::move()
+void            Snake::move()
 {
     controller_->updateDirection(location_.front());
 
@@ -58,7 +58,7 @@ void    Snake::move()
     }
 }
 
-IController *Snake::getController()
+IController*    Snake::getController()
 {
 	return controller_;
 }

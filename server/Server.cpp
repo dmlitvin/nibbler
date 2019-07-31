@@ -100,7 +100,7 @@ void Server::startGame()
 		std::thread th{&ClientController::run, reinterpret_cast<ClientController*>(players_[i]->getController())};
 		th.detach();
 	}
-
+	
 	std::cout << players_.size() << std::endl;
 //	for (clientId i = 0; i < bots_; ++i)
 //	{
