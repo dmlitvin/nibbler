@@ -1,6 +1,5 @@
 #include "ClientController.hpp"
 
-
 extern std::mutex boardLock;
 
 ClientController::ClientController(socketPtr sock) :
@@ -33,9 +32,9 @@ void ClientController::run()
 
 	while (true)
 	{
-		sendMap_(err);
-		if (err)
-			break;
+//		sendMap_(err);
+//		if (err)
+//			break;
 		readKey_(err);
 		if (err)
 			break;
@@ -57,7 +56,6 @@ void ClientController::sendMap_(boost::system::error_code& err)
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
-	boardLock.unlock();
 	sock_->write_some(boost::asio::buffer(mapBuff), err);
 	if (processErrors(err))
 		return;
@@ -69,6 +67,7 @@ void ClientController::sendMap_(boost::system::error_code& err)
 	std::cout << "read ack" << std::endl;
 	if (processErrors(err))
 		return;
+	boardLock.unlock();
 }
 
 void ClientController::readKey_(boost::system::error_code& err)

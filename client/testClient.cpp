@@ -45,13 +45,13 @@ int		main(int argc, char **argv)
 		boost::system::error_code err;
 		while (true)
 		{
-			sock->read_some(buffer(map, mapWidth * mapHeight), err);
-			if (err)
-			{
-				std::cout << "err " << err.message() << std::endl;
-				return;
-			}
-			sock->write_some(buffer("ok", 2));
+//			sock->read_some(buffer(map, mapWidth * mapHeight), err);
+//			if (err)
+//			{
+//				std::cout << "err " << err.message() << std::endl;
+//				return;
+//			}
+//			sock->write_some(buffer("ok", 2));
 			for (int i = 0; i < mapHeight; ++i)
 			{
 				for (int j = 0; j < mapWidth; ++j)

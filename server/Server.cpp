@@ -100,21 +100,22 @@ void Server::startGame()
 		std::thread th{&ClientController::run, reinterpret_cast<ClientController*>(players_[i]->getController())};
 		th.detach();
 	}
+
 	std::cout << players_.size() << std::endl;
-	for (clientId i = 0; i < bots_; ++i)
-	{
-		IController* botController = new ComputerController();
-		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_ * 4, 8})));
-		controllers_.push_back(botController);
-		++nextClientId_;
-	}
-
-	int fruitAccumulator = 0;
-	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
-
-	while (!gameOver_)
-	{
-		boardLock.lock();
+//	for (clientId i = 0; i < bots_; ++i)
+//	{
+//		IController* botController = new ComputerController();
+//		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_ * 4, 8})));
+//		controllers_.push_back(botController);
+//		++nextClientId_;
+//	}
+//
+//	int fruitAccumulator = 0;
+//	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
+//
+//	while (!gameOver_)
+//	{
+//		boardLock.lock();
 //		auto it = players_.begin();
 //		while (it != players_.end())
 //		{
@@ -132,14 +133,14 @@ void Server::startGame()
 //				it = players_.erase(it);
 //			}
 //		}
-
-//		std::cout << *board_ << std::endl;
-		if (!(fruitAccumulator % fruitGenRate))
-			(*board_)[rand() % board_->getHeight()]
-			[rand() % board_->getWidth()]
-			= static_cast<uint8_t>(entityType::food);
-		boardLock.unlock();
-		++fruitAccumulator;
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-	}
+//
+////		std::cout << *board_ << std::endl;
+//		if (!(fruitAccumulator % fruitGenRate))
+//			(*board_)[rand() % board_->getHeight()]
+//			[rand() % board_->getWidth()]
+//			= static_cast<uint8_t>(entityType::food);
+//		boardLock.unlock();
+//		++fruitAccumulator;
+//		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+//	}
 }
