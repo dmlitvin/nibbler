@@ -37,12 +37,12 @@ int		main(int argc, char **argv)
 		key[0] = 'd';
 
 		uint16_t mapStats[2];
-		boost::asio::read(*sock, buffer(mapStats, sizeof(mapStats)));
+		boost::asio::read(*sock, buffer(mapStats, sizeof(mapStats)), boost::asio::transfer_exactly(sizeof(mapStats)));
 
 //	sock->read_some(buffer(mapStats, sizeof(mapStats)));
 
 //		sock->write_some(buffer("ok", 2));
-		boost::asio::write(*sock, buffer("ok", 2));
+		boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2));
 
 		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
 
@@ -51,13 +51,13 @@ int		main(int argc, char **argv)
 		while (true)
 		{
 //			sock->read_some(buffer(map, mapWidth * mapHeight), err);
-			boost::asio::read(*sock, buffer(map, mapWidth * mapHeight));
+			boost::asio::read(*sock, buffer(map, mapWidth * mapHeight), boost::asio::transfer_exactly(mapWidth * mapHeight));
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
-			boost::asio::write(*sock, buffer("ok", 2));
+			boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2));
 //			sock->write_some(buffer("ok", 2));
 			for (int i = 0; i < mapHeight; ++i)
 			{
@@ -78,14 +78,14 @@ int		main(int argc, char **argv)
 			key[0] = getch();
 			if (key[0] == -1)
 				key[0] = 'c';
-			boost::asio::write(*sock, buffer(key, 1));
+			boost::asio::write(*sock, buffer(key, 1), boost::asio::transfer_exactly(1));
 //			sock->write_some(buffer(key, 1));
 
 			static std::string buff;
 			if (buff.empty())
 				buff.resize(2);
 
-			boost::asio::read(*sock, buffer(buff, 2));
+			boost::asio::read(*sock, buffer(buff, 2), boost::asio::transfer_exactly(2));
 //			sock->read_some(buffer(buff, 2));
 
 			if (buff != "ok")
