@@ -39,6 +39,7 @@ int		main(int argc, char **argv)
 		uint16_t mapStats[2];
 		sock->read_some(buffer(mapStats));
 
+		sock->write_some(buffer("ok", 2));
 		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
 
 		char* map = new char[mapHeight * mapWidth];
