@@ -32,12 +32,13 @@ void ClientController::run()
 
 	while (true)
 	{
-//		sendMap_(err);
-//		if (err)
-//			break;
+		sendMap_(err);
+		if (err)
+			break;
 		readKey_(err);
 		if (err)
 			break;
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
 
@@ -51,34 +52,38 @@ void ClientController::sendMap_(boost::system::error_code& err)
 	if (ackBuff.empty())
 		ackBuff.resize(2);
 
-	boardLock.lock();
+//	boardLock.lock();
 	auto mapIt = mapBuff.begin();
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
-	sock_->write_some(boost::asio::buffer(mapBuff), err);
+	boost::asio::write(*sock_, boost::asio::buffer(mapBuff), boost::asio::transfer_exactly(mapBuff.size()));
+//	sock_->write_some(boost::asio::buffer(mapBuff), err);
 	if (processErrors(err))
 		return;
-	std::cout << "write some" << std::endl;
 
-	sock_->read_some(boost::asio::buffer(ackBuff));
-	if (ackBuff != "ok")
-		std::cerr << "ackBuff != ok" << std::endl;
-	std::cout << "read ack" << std::endl;
+	boost::asio::read(*sock_, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2));
+//	sock_->read_some(boost::asio::buffer(ackBuff, 2), err);
+//	if (ackBuff != "ok")
+//		std::cerr << "sendMap ackBuff != ok" << std::endl;
+//	else
+//		std::cout << "sendMap ackBuff ok" << std::endl;
 	if (processErrors(err))
 		return;
-	boardLock.unlock();
+//	boardLock.unlock();
 }
 
 void ClientController::readKey_(boost::system::error_code& err)
 {
 	static size_t	lastReadBytes = 0;
 	static char		buff;
-
-	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, sizeof(buff)), err);
+//	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, sizeof(buff)), err);
+	lastReadBytes = boost::asio::read(*sock_, boost::asio::buffer(&buff, sizeof(buff)), boost::asio::transfer_exactly(1));
+	boost::asio::write(*sock_, boost::asio::buffer("ok", 2), boost::asio::transfer_exactly(2));
+//	sock_->write_some(boost::asio::buffer("ok", 2));
 	if (processErrors(err))
 		return;
-	std::cout << "read key" << std::endl;
+//	std::cout << "read key " << buff << std::endl;
 	if (lastReadBytes)
 	{
 		switch(buff)
@@ -95,8 +100,12 @@ void ClientController::readKey_(boost::system::error_code& err)
 			case 'w':
 				lastPressed_ = Key::UP;
 				break;
+			case 'c':
+//				std::cout << "No key" << std::endl;
+				break;
 			default:
-				std::cout << "Unknown key" << std::endl;
+				;
+//				std::cout << "Unknown key" << std::endl;
 		}
 	}
 }
@@ -105,7 +114,7 @@ bool ClientController::processErrors(boost::system::error_code &err)
 {
 	if (err)
 	{
-		std::cerr << "Couldn't read from client or client closed connection." << std::endl;
+//		std::cerr << "Couldn't read from client or client closed connection." << std::endl;
 		sock_->close();
 		return true;
 	}

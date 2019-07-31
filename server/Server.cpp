@@ -85,8 +85,20 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	static uint16_t mapStats[2];
 	mapStats[0] = board_->getHeight();
 	mapStats[1] = board_->getWidth();
-	sock->write_some(boost::asio::buffer(mapStats, 4));
 
+	static std::string ackBuff;
+	if (ackBuff.empty())
+		ackBuff.resize(2);
+
+	write(*sock, boost::asio::buffer(mapStats, 4), boost::asio::transfer_exactly(4));
+//	sock->write_some(boost::asio::buffer(mapStats, 4));
+
+	boost::asio::read(*sock, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2));
+//	sock->read_some(boost::asio::buffer(ackBuff, 2));
+//	if (ackBuff != "ok")
+//		std::cout << "ackBuff != ok" << std::endl;
+//	else
+//		std::cout << "init ackBuff ok" << std::endl;
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work
 	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id * 10, id * 10})));
@@ -100,47 +112,48 @@ void Server::startGame()
 		std::thread th{&ClientController::run, reinterpret_cast<ClientController*>(players_[i]->getController())};
 		th.detach();
 	}
-	
+
 	std::cout << players_.size() << std::endl;
-//	for (clientId i = 0; i < bots_; ++i)
-//	{
-//		IController* botController = new ComputerController();
-//		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_ * 4, 8})));
-//		controllers_.push_back(botController);
-//		++nextClientId_;
-//	}
-//
-//	int fruitAccumulator = 0;
-//	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
-//
-//	while (!gameOver_)
-//	{
-//		boardLock.lock();
-//		auto it = players_.begin();
-//		while (it != players_.end())
-//		{
-//			auto& snake = **it;
-//			auto  toDelete = snake.getLocation();
-//			snake.move();
-//			deleteSnakeFromMap(toDelete, *board_);
-//			putSnakeToMap(snake, *board_);
-//
-//			if (**it)
-//				it++;
-//			else
-//			{
-//				deleteSnakeFromMap(it->get()->getLocation(), *board_);
-//				it = players_.erase(it);
-//			}
-//		}
-//
-////		std::cout << *board_ << std::endl;
-//		if (!(fruitAccumulator % fruitGenRate))
-//			(*board_)[rand() % board_->getHeight()]
-//			[rand() % board_->getWidth()]
-//			= static_cast<uint8_t>(entityType::food);
-//		boardLock.unlock();
-//		++fruitAccumulator;
-//		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-//	}
+
+	for (clientId i = 0; i < bots_; ++i)
+	{
+		IController* botController = new ComputerController();
+		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_ * 4, 8})));
+		controllers_.push_back(botController);
+		++nextClientId_;
+	}
+
+	int fruitAccumulator = 0;
+	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
+
+	while (!gameOver_)
+	{
+		boardLock.lock();
+		auto it = players_.begin();
+		while (it != players_.end())
+		{
+			auto& snake = **it;
+			auto  toDelete = snake.getLocation();
+			snake.move();
+			deleteSnakeFromMap(toDelete, *board_);
+			putSnakeToMap(snake, *board_);
+
+			if (**it)
+				it++;
+			else
+			{
+				deleteSnakeFromMap(it->get()->getLocation(), *board_);
+				it = players_.erase(it);
+			}
+		}
+
+//		std::cout << *board_ << std::endl;
+		if (!(fruitAccumulator % fruitGenRate))
+			(*board_)[rand() % board_->getHeight()]
+			[rand() % board_->getWidth()]
+			= static_cast<uint8_t>(entityType::food);
+		boardLock.unlock();
+		++fruitAccumulator;
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	}
 }
