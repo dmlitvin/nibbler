@@ -37,7 +37,7 @@ int		main(int argc, char **argv)
 		key[0] = 'd';
 
 		uint16_t mapStats[2];
-		sock->read_some(buffer(mapStats));
+		sock->read_some(buffer(mapStats, sizeof(mapStats)));
 
 		sock->write_some(buffer("ok", 2));
 		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
@@ -81,7 +81,10 @@ int		main(int argc, char **argv)
 			sock->read_some(buffer(buff, 2));
 
 			if (buff != "ok")
+			{
 				std::cerr << "ackBuff != ok" << std::endl;
+				std::cerr << buff << std::endl;
+			}
 //			std::this_thread::sleep_for(std::chrono::milliseconds(70));
 			clear();
 		}
