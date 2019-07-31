@@ -37,22 +37,28 @@ int		main(int argc, char **argv)
 		key[0] = 'd';
 
 		uint16_t mapStats[2];
-		sock->read_some(buffer(mapStats, sizeof(mapStats)));
+		boost::asio::read(*sock, buffer(mapStats, sizeof(mapStats)));
 
-		sock->write_some(buffer("ok", 2));
+//	sock->read_some(buffer(mapStats, sizeof(mapStats)));
+
+//		sock->write_some(buffer("ok", 2));
+		boost::asio::write(*sock, buffer("ok", 2));
+
 		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
 
 		char* map = new char[mapHeight * mapWidth];
 		boost::system::error_code err;
 		while (true)
 		{
-			sock->read_some(buffer(map, mapWidth * mapHeight), err);
+//			sock->read_some(buffer(map, mapWidth * mapHeight), err);
+			boost::asio::read(*sock, buffer(map, mapWidth * mapHeight));
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
-			sock->write_some(buffer("ok", 2));
+			boost::asio::write(*sock, buffer("ok", 2));
+//			sock->write_some(buffer("ok", 2));
 			for (int i = 0; i < mapHeight; ++i)
 			{
 				for (int j = 0; j < mapWidth; ++j)
@@ -72,18 +78,19 @@ int		main(int argc, char **argv)
 			key[0] = getch();
 			if (key[0] == -1)
 				key[0] = 'c';
-			sock->write_some(buffer(key, 1));
+			boost::asio::write(*sock, buffer(key, 1));
+//			sock->write_some(buffer(key, 1));
 
 			static std::string buff;
 			if (buff.empty())
 				buff.resize(2);
 
-			sock->read_some(buffer(buff, 2));
+			boost::asio::read(*sock, buffer(buff, 2));
+//			sock->read_some(buffer(buff, 2));
 
 			if (buff != "ok")
 			{
-				std::cerr << "ackBuff != ok" << std::endl;
-				std::cerr << buff << std::endl;
+				std::cerr << "ackBuff != ok " << std::endl;
 			}
 //			std::this_thread::sleep_for(std::chrono::milliseconds(70));
 			clear();
