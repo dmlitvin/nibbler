@@ -34,7 +34,7 @@ int		main(int argc, char **argv)
 		timeout(5);
 		char key[2];
 		key[1] = 0;
-		// key[0] = 'd';
+		key[0] = 'd';
 
 		uint16_t mapStats[2];
 		sock->read_some(buffer(mapStats));
