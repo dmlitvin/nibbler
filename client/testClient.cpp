@@ -34,7 +34,7 @@ int		main(int argc, char **argv)
 		timeout(5);
 		char key[2];
 		key[1] = 0;
-		key[0] = 'd';
+		// key[0] = 'd';
 
 		uint16_t mapStats[2];
 		sock->read_some(buffer(mapStats));
@@ -61,7 +61,7 @@ int		main(int argc, char **argv)
 					toPrintBuff[1] = 0;
 					if (!toPrintBuff[0])
 						mvprintw(i, j, ".\0");
-					else if (toPrintBuff[0] == 2)
+					else if (toPrintBuff[0] == 1)
 						mvprintw(i, j, "F\0");
 					else
 						mvprintw(i, j, "o\0");
