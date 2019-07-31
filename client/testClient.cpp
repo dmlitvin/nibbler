@@ -62,16 +62,16 @@ int		main(int argc, char **argv)
 					toPrintBuff[1] = 0;
 					if (!toPrintBuff[0])
 						mvprintw(i, j, ".\0");
-					else if (toPrintBuff[0] == 2)
+					else if (toPrintBuff[0] == 1)
 						mvprintw(i, j, "F\0");
 					else
 						mvprintw(i, j, "o\0");
 				}
 			}
-			char prevKey = key[0];
+//			char prevKey = key[0];
 			key[0] = getch();
 			if (key[0] == -1)
-				key[0] = prevKey;
+				key[0] = 'c';
 			sock->write_some(buffer(key, 1));
 
 			static std::string buff;
