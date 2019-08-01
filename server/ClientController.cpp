@@ -2,8 +2,8 @@
 
 extern std::mutex boardLock;
 
-ClientController::ClientController(socketPtr sock) :
-	sock_(sock)
+ClientController::ClientController(socketPtr sock, clientId id) :
+	sock_(sock), id_(id)
 {
 }
 
@@ -44,7 +44,7 @@ void ClientController::run()
 
 void ClientController::sendMap_(boost::system::error_code& err)
 {
-	boardLock.lock();
+	std::lock_guard<std::mutex> boardLockGuard{boardLock};
 	thread_local static std::vector<uint8_t> mapBuff;
 	thread_local static std::string ackBuff;
 
@@ -60,24 +60,14 @@ void ClientController::sendMap_(boost::system::error_code& err)
 	boost::asio::write(*sock_, boost::asio::buffer(mapBuff, mapBuff.size()), boost::asio::transfer_exactly(mapBuff.size()), err);
 
 	if (processErrors(err))
-	{
-		boardLock.unlock();
 		return;
-	}
 //	sock_->write_some(boost::asio::buffer(mapBuff), err);
 	boost::asio::read(*sock_, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2), err);
-
 //	sock_->read_some(boost::asio::buffer(ackBuff, 2), err);
-	if (ackBuff != "ok")
-		std::cerr << "sendMap ackBuff != ok" << std::endl;
-	else
-		std::cout << "sendMap ackBuff ok" << std::endl;
 	if (processErrors(err))
-	{
-		boardLock.unlock();
 		return;
-	}
-	boardLock.unlock();
+	if (ackBuff != "ok")
+		std::cerr << "sendMap ackBuff != ok [id: " << id_ << "]" << std::endl;
 }
 
 void ClientController::readKey_(boost::system::error_code& err)
@@ -112,8 +102,6 @@ void ClientController::readKey_(boost::system::error_code& err)
 			case 'c':
 //				std::cout << "No key" << std::endl;
 				break;
-			default:
-				;
 //				std::cout << "Unknown key" << std::endl;
 		}
 	}

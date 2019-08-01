@@ -99,12 +99,11 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	boost::asio::read(*sock, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2), newErr);
 //	sock->read_some(boost::asio::buffer(ackBuff, 2));
 	if (ackBuff != "ok")
-		std::cout << "ackBuff != ok [" << id << "]" << std::endl;
+		std::cout << "ackBuff != ok [id: " << id << "]" << std::endl;
 	else
-		std::cout << "init ackBuff ok [" << id << "]" << std::endl;
-	IController* controller = new ClientController(sock);
-	// TODO: make_unique doesnt work
-	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id * 5, id * 5})));
+		std::cout << "init ackBuff ok [id: " << id << "]" << std::endl;
+	IController* controller = new ClientController(sock, id);
+	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id, id * 2})));
 	controllers_.push_back(controller);
 }
 
@@ -116,17 +115,17 @@ void Server::startGame()
 		th.detach();
 	}
 
-	std::cout << players_.size() << std::endl;
-//
-//	while(1)
-//	;
+	std::cout << "Real clients(players) count: " << players_.size() << std::endl;
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
-		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_ * 4, 8})));
+		players_.push_back(snakePtr(new Snake(*board_, botController, {2 * nextClientId_, nextClientId_})));
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
+
+	for (const auto & snake : players_)
+		putSnakeToMap(*snake, *board_);
 
 	int fruitAccumulator = 0;
 	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
@@ -142,7 +141,6 @@ void Server::startGame()
 			snake.move();
 			deleteSnakeFromMap(toDelete, *board_);
 			putSnakeToMap(snake, *board_);
-//
 			if (**it)
 				it++;
 			else
@@ -152,7 +150,6 @@ void Server::startGame()
 			}
 		}
 
-//		std::cout << *board_ << std::endl;
 		if (!(fruitAccumulator % fruitGenRate))
 			(*board_)[rand() % board_->getHeight()]
 			[rand() % board_->getWidth()]

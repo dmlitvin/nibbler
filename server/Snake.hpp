@@ -33,7 +33,7 @@ private:
     unsigned            score_ = 0, speed_ = 1;
     entityType          type_ = nextSnakeType();
     IController         *controller_;
-    direction_t         direction_ = {0, 1};
+    direction_t         direction_ = {1, 0};
     const GameBoard&    gameBoard_;
     std::vector<cord_t> location_;
 
