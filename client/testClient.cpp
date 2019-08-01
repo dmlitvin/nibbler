@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 #include <ncurses.h>
-#include <ncurses.h>
+#include "DLLHandler.hpp"
 
 //using namespace std;
 const int buff_size = 1000000;
@@ -29,12 +29,9 @@ int		main(int argc, char **argv)
 			std::cerr << "Error: Couldn't connect to server" << std::endl;
 			return;
 		}
-		initscr();
-		curs_set(0);
-		timeout(5);
-		char key[2];
-		key[1] = 0;
-		key[0] = 'd';
+		char keyBuff[2];
+		keyBuff[1] = 0;
+		keyBuff[0] = 'd';
 
 		boost::system::error_code err;
 		uint16_t mapStats[2];
@@ -57,7 +54,14 @@ int		main(int argc, char **argv)
 
 		uint16_t mapHeight = mapStats[0], mapWidth = mapStats[1];
 
-		char* map = new char[mapHeight * mapWidth];
+		uint8_t * map = new uint8_t[mapHeight * mapWidth];
+
+		std::cout << std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib" << std::endl;
+
+		DLLHandler  graphicHandler(std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib", mapWidth, mapHeight);
+		graphicHandler.init();
+		graphicHandler.setGrid(map);
+
 		while (true)
 		{
 //			sock->read_some(buffer(map, mapWidth * mapHeight), err);
@@ -67,33 +71,23 @@ int		main(int argc, char **argv)
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
+
 			boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2), err);
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
+
+            static std::map<key, char>  keyChar = {{key::UP, 'w'}, {key::DOWN, 's'}, {key::LEFT, 'a'}, {key::RIGHT, 'd'}};
+
+            graphicHandler.draw();
+            keyBuff[0] = keyChar[graphicHandler.getLastPressed()];
+
 //			sock->write_some(buffer("ok", 2));
-			for (int i = 0; i < mapHeight; ++i)
-			{
-				for (int j = 0; j < mapWidth; ++j)
-				{
-					char toPrintBuff[2];
-					toPrintBuff[0] = map[(i * mapWidth) + j];
-					toPrintBuff[1] = 0;
-					if (!toPrintBuff[0])
-						mvprintw(i, j, ".\0");
-					else if (toPrintBuff[0] == 1)
-						mvprintw(i, j, "F\0");
-					else
-						mvprintw(i, j, "o\0");
-				}
-			}
 //			char prevKey = key[0];
-			key[0] = getch();
-			if (key[0] == -1)
-				key[0] = 'c';
-			boost::asio::write(*sock, buffer(key, 1), boost::asio::transfer_exactly(1), err);
+
+			boost::asio::write(*sock, buffer(keyBuff, 1), boost::asio::transfer_exactly(1), err);
 //			sock->write_some(buffer(key, 1));
 
 			if (err)
@@ -120,8 +114,8 @@ int		main(int argc, char **argv)
 				return;
 			}
 //			std::this_thread::sleep_for(std::chrono::milliseconds(70));
-			erase();
-		}
+
+        }
 		endwin();
 	});
 	service.run();

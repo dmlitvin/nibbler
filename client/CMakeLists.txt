@@ -4,7 +4,7 @@ project(NibblerClient)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(srcs testClient.cpp)
+set(srcs testClient.cpp DLLHandler.cpp)
 
 find_package(Boost REQUIRED)
 find_package(Curses REQUIRED)
@@ -16,3 +16,4 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CURSES_INCLUDE_DIR})
 
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
+
