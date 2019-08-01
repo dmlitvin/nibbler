@@ -15,7 +15,7 @@ public:
 	using clientId = uint16_t;
 	using socketPtr = std::shared_ptr<boost::asio::ip::tcp::socket> ;
 
-	explicit ClientController(socketPtr sock);
+	explicit ClientController(socketPtr sock, clientId id);
 	ClientController() = delete;
 	ClientController(const ClientController &rhs) = delete;
 	ClientController &operator=(const ClientController &rhs) = delete;
@@ -35,7 +35,8 @@ private:
 	Key					lastPressed_;
 	direction_t*		direction_;
 	const GameBoard*	gameBoard_;
-	socketPtr sock_;
+	socketPtr			sock_;
+	clientId			id_;
 };
 
 
