@@ -3,8 +3,6 @@
 void    DLLHandler::draw()
 {
     void(*funcDraw)() = reinterpret_cast<void(*)()>(functions["draw"]); funcDraw();
-
-//    std::cout << "drawing" << std::endl;
 }
 
 void    DLLHandler::setGrid(uint8_t *grid)
@@ -23,16 +21,14 @@ void    DLLHandler::init()
 
 void    DLLHandler::changeLibrary(std::string const &libPath)
 {
-//    std::cout << "changing library to " << libPath << std::endl;
+    std::cout << "changing dynamic library to " << libPath << std::endl;
 
     destroy();
     dlclose(dllPtr);
-    dllPtr = dlopen(libPath.c_str(), RTLD_LAZY);
-    for (auto & mapPair : functions)
-        if (!(mapPair.second = dlsym(dllPtr, mapPair.first.c_str())))
-            std::cerr << dlerror() << std::endl;
+    loadLib(libPath);
 
-//    std::cout << "library changed to " << libPath << std::endl;
+    std::cout << "dynamic library changed to " << libPath << std::endl;
+
     init();
 }
 
@@ -40,24 +36,38 @@ void    DLLHandler::destroy()
 {
     void(*ptrDestroy)() = reinterpret_cast<void(*)()>(functions["destroy"]); ptrDestroy();
 
-//    std::cout << "destroying window" << std::endl;
+    std::cout << "destroying window" << std::endl;
 }
 
 DLLHandler::DLLHandler(std::string const &libPath, uint8_t width, uint8_t height)
 : dllPtr(dlopen(libPath.c_str(), RTLD_LAZY)), width(width), height(height)
 {
-//    std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
+    std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
 
-    for (auto & mapPair : functions)
-        if (!(mapPair.second = dlsym(dllPtr, mapPair.first.c_str())))
+    loadLib(libPath);
+
+    std::cout << "lib: " << libPath << " constructed" << std::endl;
+}
+
+void    DLLHandler::loadLib(const std::string &libPath)
+{
+    std::cout << "loading graphic library " << libPath << std::endl;
+
+    if (!(dlopen(libPath.c_str(), RTLD_LAZY)))
+    {
+        std::cerr << dlerror() << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    for (auto & strFunc : functions)
+        if (!(strFunc.second = dlsym(dllPtr, strFunc.first.c_str())))
             std::cerr << dlerror() << std::endl;
 
-//    std::cout << "lib: " << libPath << "constructed" << std::endl;
+    std::cout << "graphic library " << libPath << " loaded" << std::endl;
 }
 
 DLLHandler::~DLLHandler()
 {
-//    std::cout << "destructing dllhandler" << std::endl;
     dlclose(dllPtr);
 }
 
@@ -66,7 +76,6 @@ key     DLLHandler::getLastPressed()
     key(*ptrGetLastPressed)() = reinterpret_cast<key(*)()>(functions["getLastPressed"]); lastPressed = ptrGetLastPressed();
 
     static std::map<key, std::string>  keyStr = {{UP, "UP"}, {DOWN, "DOWN"}, {LEFT, "LEFT"}, {RIGHT, "RIGHT"}};
-//    std::cout << "last pressed button: " << keyStr[lastPressed] << std::endl;
 
     return lastPressed;
 }

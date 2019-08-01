@@ -17,6 +17,7 @@ struct DLLHandler
     void    setGrid(uint8_t*);
     void    draw();
     void    destroy();
+    void    loadLib(const std::string & libPath);
 
     void    changeLibrary(std::string const & libPath);
 
@@ -28,7 +29,8 @@ private:
 
     key                             lastPressed = key::RIGHT;
 
-    void                            *dllPtr;
+    void                            *dllPtr = nullptr;
+
     std::map<std::string, void*>    functions = {{"init", nullptr},
                                                  {"setGrid", nullptr},
                                                  {"draw", nullptr},
