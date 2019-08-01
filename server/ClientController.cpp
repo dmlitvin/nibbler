@@ -38,48 +38,57 @@ void ClientController::run()
 		readKey_(err);
 		if (err)
 			break;
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+//		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
 
 void ClientController::sendMap_(boost::system::error_code& err)
 {
-	static std::vector<uint8_t> mapBuff;
-	static std::string ackBuff;
+	boardLock.lock();
+	thread_local static std::vector<uint8_t> mapBuff;
+	thread_local static std::string ackBuff;
 
 	if (mapBuff.empty())
 		mapBuff.resize(gameBoard_->getHeight() * gameBoard_->getWidth());
 	if (ackBuff.empty())
 		ackBuff.resize(2);
 
-//	boardLock.lock();
 	auto mapIt = mapBuff.begin();
 	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
 		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
-	boost::asio::write(*sock_, boost::asio::buffer(mapBuff), boost::asio::transfer_exactly(mapBuff.size()));
-//	sock_->write_some(boost::asio::buffer(mapBuff), err);
-	if (processErrors(err))
-		return;
+	boost::asio::write(*sock_, boost::asio::buffer(mapBuff, mapBuff.size()), boost::asio::transfer_exactly(mapBuff.size()), err);
 
-	boost::asio::read(*sock_, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2));
-//	sock_->read_some(boost::asio::buffer(ackBuff, 2), err);
-//	if (ackBuff != "ok")
-//		std::cerr << "sendMap ackBuff != ok" << std::endl;
-//	else
-//		std::cout << "sendMap ackBuff ok" << std::endl;
 	if (processErrors(err))
+	{
+		boardLock.unlock();
 		return;
-//	boardLock.unlock();
+	}
+//	sock_->write_some(boost::asio::buffer(mapBuff), err);
+	boost::asio::read(*sock_, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2), err);
+
+//	sock_->read_some(boost::asio::buffer(ackBuff, 2), err);
+	if (ackBuff != "ok")
+		std::cerr << "sendMap ackBuff != ok" << std::endl;
+	else
+		std::cout << "sendMap ackBuff ok" << std::endl;
+	if (processErrors(err))
+	{
+		boardLock.unlock();
+		return;
+	}
+	boardLock.unlock();
 }
 
 void ClientController::readKey_(boost::system::error_code& err)
 {
-	static size_t	lastReadBytes = 0;
-	static char		buff;
+	thread_local static size_t	lastReadBytes = 0;
+	thread_local static char		buff;
 //	lastReadBytes = sock_->read_some(boost::asio::buffer(&buff, sizeof(buff)), err);
-	lastReadBytes = boost::asio::read(*sock_, boost::asio::buffer(&buff, sizeof(buff)), boost::asio::transfer_exactly(1));
-	boost::asio::write(*sock_, boost::asio::buffer("ok", 2), boost::asio::transfer_exactly(2));
+	lastReadBytes = boost::asio::read(*sock_, boost::asio::buffer(&buff, sizeof(buff)), boost::asio::transfer_exactly(1), err);
+	if (processErrors(err))
+		return;
+	boost::asio::write(*sock_, boost::asio::buffer("ok", 2), boost::asio::transfer_exactly(2), err);
 //	sock_->write_some(boost::asio::buffer("ok", 2));
 	if (processErrors(err))
 		return;
@@ -114,7 +123,7 @@ bool ClientController::processErrors(boost::system::error_code &err)
 {
 	if (err)
 	{
-//		std::cerr << "Couldn't read from client or client closed connection." << std::endl;
+		std::cerr << "Couldn't read from client or client closed connection." << std::endl;
 		sock_->close();
 		return true;
 	}

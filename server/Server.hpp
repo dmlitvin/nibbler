@@ -19,6 +19,9 @@ public:
 	using clientId = uint16_t;
 	using snakePtr = std::shared_ptr<Snake>;
 	using boardPtr = std::shared_ptr<GameBoard>;
+	using ioServicePtr = std::shared_ptr<boost::asio::io_service>;
+	using endPointPtr = std::shared_ptr<boost::asio::ip::tcp::endpoint>;
+	using acceptorPtr = std::shared_ptr<boost::asio::ip::tcp::acceptor>;
 
 	explicit Server(char *argv[]);
 	Server(const Server &rhs) = delete;
@@ -39,9 +42,9 @@ private:
 	constexpr static uint16_t		SERVER_PORT = 4242;
 //	constexpr static char			MSG_END = '\n';
 
-	boost::asio::io_service			service_;
-	boost::asio::ip::tcp::endpoint	endPoint_;
-	boost::asio::ip::tcp::acceptor	acceptor_;
+	ioServicePtr					service_ = nullptr;
+	endPointPtr						endPoint_ = nullptr;
+	acceptorPtr						acceptor_ = nullptr;
 
 	clientId						nextClientId_ = 1;
 	clientId						bots_ = 0;
