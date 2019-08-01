@@ -14,13 +14,13 @@ void    DLLHandler::setGrid(uint8_t *grid)
 
 void    DLLHandler::init()
 {
-//    std::cout << "initing window with width " << (int)width << " and height " << (int)height << std::endl;
-
     void(*ptrInit)(uint8_t, uint8_t) = reinterpret_cast<void(*)(uint8_t, uint8_t)>(functions["init"]); ptrInit(width, height);
 }
 
 void    DLLHandler::changeLibrary(std::string const &libPath)
 {
+    if (libPath == currLib)
+        return ;
     std::cout << "changing dynamic library to " << libPath << std::endl;
 
     destroy();
@@ -28,6 +28,7 @@ void    DLLHandler::changeLibrary(std::string const &libPath)
     loadLib(libPath);
 
     std::cout << "dynamic library changed to " << libPath << std::endl;
+    currLib = libPath;
 
     init();
 }
@@ -40,7 +41,7 @@ void    DLLHandler::destroy()
 }
 
 DLLHandler::DLLHandler(std::string const &libPath, uint8_t width, uint8_t height)
-: dllPtr(dlopen(libPath.c_str(), RTLD_LAZY)), width(width), height(height)
+: dllPtr(dlopen(libPath.c_str(), RTLD_LAZY)), width(width), height(height), currLib(libPath)
 {
     std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
 

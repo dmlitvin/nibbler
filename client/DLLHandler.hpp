@@ -27,9 +27,9 @@ struct DLLHandler
 
 private:
 
-    key                             lastPressed = key::RIGHT;
-
-    void                            *dllPtr = nullptr;
+    key         lastPressed = key::RIGHT;
+    void        *dllPtr = nullptr;
+    std::string currLib;
 
     std::map<std::string, void*>    functions = {{"init", nullptr},
                                                  {"setGrid", nullptr},

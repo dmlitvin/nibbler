@@ -2,5 +2,5 @@
 
 enum key
 {
-    UP, DOWN, LEFT, RIGHT
+    UP, DOWN, LEFT, RIGHT, NB1, NB2, NB3
 };

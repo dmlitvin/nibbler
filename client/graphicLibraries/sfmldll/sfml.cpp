@@ -66,6 +66,12 @@ void    draw()
             lastPressed = key::DOWN;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             lastPressed = key::UP;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+            lastPressed = key::NB1;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+            lastPressed = key::NB2;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+            lastPressed = key::NB3;
 
         window->display();
     }
