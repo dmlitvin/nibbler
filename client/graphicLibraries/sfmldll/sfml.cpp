@@ -12,7 +12,7 @@ namespace
 
     static const int squareSide = 30;
 
-    static key lastPressed;
+    static key lastPressed = key::RIGHT;
 }
 
 extern "C"
