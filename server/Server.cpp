@@ -14,10 +14,12 @@ void    putSnakeToMap(const Snake & snake, GameBoard & board)
 		board[snakeCord] = static_cast<uint8_t>(snake.getType());
 }
 
-Server::Server(char *argv[]) :
-	endPoint_(boost::asio::ip::tcp::v4(), SERVER_PORT),
-	acceptor_(service_, endPoint_)
+Server::Server(char *argv[])
 {
+//	endPoint_(boost::asio::ip::tcp::v4(), SERVER_PORT),
+	service_ = std::make_shared<boost::asio::io_service>();
+	endPoint_ = std::make_shared<boost::asio::ip::tcp::endpoint>(boost::asio::ip::tcp::v4(), SERVER_PORT);
+	acceptor_ = std::make_shared<boost::asio::ip::tcp::acceptor>(*service_, *endPoint_);
 	uint16_t mapHeight = getNumberFromArg_(argv[0]);
 	if (mapHeight == 0)
 	{
@@ -61,12 +63,12 @@ void Server::acceptClients(char *argv[])
 	auto clientConnected = std::mem_fn(&Server::clientConnected_);
 	for (clientId i = 0; i < clientsCount; ++i)
 	{
-		socketPtr newClientSock = std::make_shared<boost::asio::ip::tcp::socket>(service_);
+		socketPtr newClientSock = std::make_shared<boost::asio::ip::tcp::socket>(*service_);
 		clientId newClientId = nextClientId_++;
-		acceptor_.async_accept(*newClientSock,
+		acceptor_->async_accept(*newClientSock,
 			std::bind(clientConnected, this, newClientSock, newClientId, std::placeholders::_1)); 
 	}
-	service_.run();
+	service_->run();
 }
 
 void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::error_code& err)
@@ -90,18 +92,19 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	if (ackBuff.empty())
 		ackBuff.resize(2);
 
-	write(*sock, boost::asio::buffer(mapStats, 4), boost::asio::transfer_exactly(4));
+	boost::system::error_code newErr;
+	boost::asio::write(*sock, boost::asio::buffer(mapStats, 4), boost::asio::transfer_exactly(4), newErr);
 //	sock->write_some(boost::asio::buffer(mapStats, 4));
 
-	boost::asio::read(*sock, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2));
+	boost::asio::read(*sock, boost::asio::buffer(ackBuff, 2), boost::asio::transfer_exactly(2), newErr);
 //	sock->read_some(boost::asio::buffer(ackBuff, 2));
-//	if (ackBuff != "ok")
-//		std::cout << "ackBuff != ok" << std::endl;
-//	else
-//		std::cout << "init ackBuff ok" << std::endl;
+	if (ackBuff != "ok")
+		std::cout << "ackBuff != ok [" << id << "]" << std::endl;
+	else
+		std::cout << "init ackBuff ok [" << id << "]" << std::endl;
 	IController* controller = new ClientController(sock);
 	// TODO: make_unique doesnt work
-	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id * 10, id * 10})));
+	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id * 5, id * 5})));
 	controllers_.push_back(controller);
 }
 
@@ -114,7 +117,9 @@ void Server::startGame()
 	}
 
 	std::cout << players_.size() << std::endl;
-
+//
+//	while(1)
+//	;
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
@@ -137,7 +142,7 @@ void Server::startGame()
 			snake.move();
 			deleteSnakeFromMap(toDelete, *board_);
 			putSnakeToMap(snake, *board_);
-
+//
 			if (**it)
 				it++;
 			else
