@@ -56,9 +56,7 @@ int		main(int argc, char **argv)
 
 		uint8_t * map = new uint8_t[mapHeight * mapWidth];
 
-		std::cout << std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib" << std::endl;
-
-		DLLHandler  graphicHandler(std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib", mapWidth, mapHeight);
+		DLLHandler  graphicHandler(std::string("graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib", mapWidth, mapHeight);
 		graphicHandler.init();
 		graphicHandler.setGrid(map);
 
