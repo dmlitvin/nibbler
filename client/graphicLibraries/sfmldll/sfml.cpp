@@ -40,6 +40,9 @@ void    draw()
         if (event.type == sf::Event::EventType::Closed)
             window->close();
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        window->close();
+
     if (window->isOpen())
     {
         window->clear();
