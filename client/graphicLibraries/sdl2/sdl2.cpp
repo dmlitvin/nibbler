@@ -6,7 +6,7 @@
 /*   By: kpshenyc <kpshenyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 13:32:57 by kpshenyc          #+#    #+#             */
-/*   Updated: 2019/08/02 19:38:02 by kpshenyc         ###   ########.fr       */
+/*   Updated: 2019/08/02 19:59:44 by kpshenyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void Window::poolEvents()
 			{
 				switch(event.key.keysym.sym)
 				{
+                    case SDLK_ESCAPE: exit(EXIT_SUCCESS); break;
 					case SDLK_a: lastPressed = key::LEFT; break;
 					case SDLK_w: lastPressed = key::UP; break;
 					case SDLK_d: lastPressed = key::RIGHT; break;
@@ -330,9 +331,16 @@ void Grid::Draw()
 				this->grid[i][j].SetColor(Colors::GRAY42);
 			else if (currByte == 1)
 				this->grid[i][j].SetColor(Colors::TURMERIC);
-			else
+			else if (currByte == 3)
 				this->grid[i][j].SetColor(Colors::BLUE);
-                
+			else if (currByte == 4)
+				this->grid[i][j].SetColor(Colors::GOLD);
+			else if (currByte == 5)
+				this->grid[i][j].SetColor(Colors::GREEN);
+			else if (currByte == 6)
+				this->grid[i][j].SetColor(Colors::WHITEBLUE);
+            else
+				this->grid[i][j].SetColor(Colors::CORNSILK);
             this->grid[i][j].draw();
         }
 	}
@@ -370,7 +378,7 @@ namespace
 	static ::Grid		*grid;
     static uint8_t      *map;
 
-	int squareSide = 30;
+	int squareSide = 15;
 	int stride = 3;
 }
 
