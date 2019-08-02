@@ -6,7 +6,7 @@
 /*   By: kpshenyc <kpshenyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 13:32:57 by kpshenyc          #+#    #+#             */
-/*   Updated: 2019/08/02 19:38:02 by kpshenyc         ###   ########.fr       */
+/*   Updated: 2019/08/02 19:53:08 by kpshenyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void Window::poolEvents()
 			{
 				switch(event.key.keysym.sym)
 				{
+                    case SDLK_ESCAPE: exit(EXIT_SUCCESS); break;
 					case SDLK_a: lastPressed = key::LEFT; break;
 					case SDLK_w: lastPressed = key::UP; break;
 					case SDLK_d: lastPressed = key::RIGHT; break;
