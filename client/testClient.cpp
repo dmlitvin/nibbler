@@ -14,7 +14,7 @@ using socket_ptr = std::shared_ptr<ip::tcp::socket>;
 
 int		main(int argc, char **argv)
 {
-    static const std::string libNames[] = {"sfmldll/sfml", "ncurses/libncurses", "sfmldll/sfml"};
+    static const std::string libNames[] = {"sfmldll/sfml", "ncurses/libncurses", "sdl2/sdl"};
 	io_service service;
 	ip::tcp::resolver resolver(service);
 	ip::tcp::resolver::query query(argv[1], "4242");
@@ -43,9 +43,6 @@ int		main(int argc, char **argv)
 			return;
 		}
 
-//	sock->read_some(buffer(mapStats, sizeof(mapStats)));
-
-//		sock->write_some(buffer("ok", 2));
 		boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2), err);
 		if (err)
 		{
@@ -57,12 +54,11 @@ int		main(int argc, char **argv)
 
 		uint8_t * map = new uint8_t[mapHeight * mapWidth];
 
-		DLLHandler  graphicHandler("graphicLibraries/" + libNames[1] + "Nibbler.dylib", map, mapWidth, mapHeight);
+		DLLHandler  graphicHandler("graphicLibraries/" + libNames[0] + "Nibbler.dylib", map, mapWidth, mapHeight);
 		graphicHandler.setGrid(map);
 
 		while (true)
 		{
-//			sock->read_some(buffer(map, mapWidth * mapHeight), err);
 			boost::asio::read(*sock, buffer(map, mapWidth * mapHeight), boost::asio::transfer_exactly(mapWidth * mapHeight), err);
 			if (err)
 			{
@@ -83,14 +79,16 @@ int		main(int argc, char **argv)
             graphicHandler.draw();
             if (lastKey < key::NB1)
                 keyBuff[0] = keyChar[lastKey];
-            else
-                graphicHandler.changeLibrary("graphicLibraries/" + libNames[lastKey - 4] + "Nibbler.dylib");
-
-//			sock->write_some(buffer("ok", 2));
-//			char prevKey = key[0];
+            else if (lastKey >= key::NB1 && lastKey <= key::NB3)
+			{
+				graphicHandler.changeLibrary(
+					"graphicLibraries/" + libNames[lastKey - 4] +
+						"Nibbler.dylib");
+			}
+			else
+				std::cout << lastKey << std::endl;
 
 			boost::asio::write(*sock, buffer(keyBuff, 1), boost::asio::transfer_exactly(1), err);
-//			sock->write_some(buffer(key, 1));
 
 			if (err)
 			{
@@ -102,7 +100,6 @@ int		main(int argc, char **argv)
 				buff.resize(2);
 
 			boost::asio::read(*sock, buffer(buff, 2), boost::asio::transfer_exactly(2), err);
-//			sock->read_some(buffer(buff, 2));
 
 			if (err)
 			{
@@ -115,8 +112,6 @@ int		main(int argc, char **argv)
 				std::cerr << static_cast<int>(buff[0]) << " " << static_cast<int>(buff[1]) << std::endl;
 				return;
 			}
-//			std::this_thread::sleep_for(std::chrono::milliseconds(70));
-
         }
 		endwin();
 	});

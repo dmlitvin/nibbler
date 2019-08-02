@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(srcs testClient.cpp DLLHandler.cpp)
 
+find_package(SFML 2.5 REQUIRED system window graphics)
 find_package(Boost REQUIRED)
 find_package(Curses REQUIRED)
 

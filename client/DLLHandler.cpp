@@ -7,14 +7,17 @@ void    DLLHandler::draw()
 
 void    DLLHandler::setGrid(uint8_t *grid)
 {
-    std::cout << "setting grid" << std::endl;
+	std::cout << "setGrid()..." << std::endl;
 
-    void(*ptrSetGrid)(uint8_t*) = reinterpret_cast<void(*)(uint8_t*)>(functions["setGrid"]); ptrSetGrid(grid);
+	void(*ptrSetGrid)(uint8_t*) = reinterpret_cast<void(*)(uint8_t*)>(functions["setGrid"]); ptrSetGrid(grid);
+	std::cout << "setGrid() done" << std::endl;
 }
 
 void    DLLHandler::init()
 {
+	std::cout << "ptrInit()..." << std::endl;
     void(*ptrInit)(uint8_t, uint8_t) = reinterpret_cast<void(*)(uint8_t, uint8_t)>(functions["init"]); ptrInit(width, height);
+    std::cout << "ptrInit() done" << std::endl;
 }
 
 void    DLLHandler::changeLibrary(std::string const &libPath)
@@ -28,7 +31,6 @@ void    DLLHandler::changeLibrary(std::string const &libPath)
     std::cout << "changing dynamic library to " << libPath << std::endl;
 
     loadLib(libPath);
-    currLib = libPath;
 
     std::cout << "dynamic library changed to " << currLib << std::endl;
 }
@@ -65,6 +67,8 @@ void    DLLHandler::loadLib(const std::string &libPath)
             std::cerr << dlerror() << std::endl;
 
     std::cout << "graphic library " << libPath << " loaded" << std::endl;
+
+	currLib = libPath;
 
     setGrid(gridPtr);
     init();
