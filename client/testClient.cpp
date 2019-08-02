@@ -14,6 +14,7 @@ using socket_ptr = std::shared_ptr<ip::tcp::socket>;
 
 int		main(int argc, char **argv)
 {
+    static const std::string libNames[] = {"sfmldll/sfml", "ncurses/libncurses", "sfmldll/sfml"};
 	io_service service;
 	ip::tcp::resolver resolver(service);
 	ip::tcp::resolver::query query(argv[1], "4242");
@@ -56,10 +57,7 @@ int		main(int argc, char **argv)
 
 		uint8_t * map = new uint8_t[mapHeight * mapWidth];
 
-		std::cout << std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib" << std::endl;
-
-		DLLHandler  graphicHandler(std::string("/Users/dmlitvin/dump/nibbler/client/graphicLibraries/sfmldll/sfml") + "NibblerLib.dylib", mapWidth, mapHeight);
-		graphicHandler.init();
+		DLLHandler  graphicHandler("graphicLibraries/" + libNames[1] + "Nibbler.dylib", map, mapWidth, mapHeight);
 		graphicHandler.setGrid(map);
 
 		while (true)
@@ -81,8 +79,12 @@ int		main(int argc, char **argv)
 
             static std::map<key, char>  keyChar = {{key::UP, 'w'}, {key::DOWN, 's'}, {key::LEFT, 'a'}, {key::RIGHT, 'd'}};
 
+			key lastKey = graphicHandler.getLastPressed();
             graphicHandler.draw();
-            keyBuff[0] = keyChar[graphicHandler.getLastPressed()];
+            if (lastKey < key::NB1)
+                keyBuff[0] = keyChar[lastKey];
+            else
+                graphicHandler.changeLibrary("graphicLibraries/" + libNames[lastKey - 4] + "Nibbler.dylib");
 
 //			sock->write_some(buffer("ok", 2));
 //			char prevKey = key[0];

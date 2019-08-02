@@ -11,12 +11,13 @@
 struct DLLHandler
 {
 
-    explicit DLLHandler(std::string const & libPath, uint8_t, uint8_t);
+    explicit DLLHandler(std::string const & libPath, uint8_t*, uint8_t, uint8_t);
 
     void    init();
     void    setGrid(uint8_t*);
     void    draw();
     void    destroy();
+    void    loadLib(const std::string & libPath);
 
     void    changeLibrary(std::string const & libPath);
 
@@ -26,9 +27,11 @@ struct DLLHandler
 
 private:
 
-    key                             lastPressed = key::RIGHT;
+    key         lastPressed = key::RIGHT;
+    void        *dllPtr = nullptr;
+    uint8_t     *gridPtr;
+    std::string currLib;
 
-    void                            *dllPtr;
     std::map<std::string, void*>    functions = {{"init", nullptr},
                                                  {"setGrid", nullptr},
                                                  {"draw", nullptr},

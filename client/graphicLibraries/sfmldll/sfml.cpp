@@ -38,7 +38,13 @@ void    draw()
 
     while (window->pollEvent(event))
         if (event.type == sf::Event::EventType::Closed)
-            window->close();
+            exit(EXIT_SUCCESS);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        exit(EXIT_SUCCESS);
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        window->close();
 
     if (window->isOpen())
     {
@@ -66,13 +72,14 @@ void    draw()
             lastPressed = key::DOWN;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             lastPressed = key::UP;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+            lastPressed = key::NB1;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+            lastPressed = key::NB2;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+            lastPressed = key::NB3;
 
         window->display();
-    }
-    else
-    {
-        destroy();
-        exit(1);
     }
 }
 
