@@ -16,7 +16,6 @@ void    putSnakeToMap(const Snake & snake, GameBoard & board)
 
 Server::Server(char *argv[])
 {
-//	endPoint_(boost::asio::ip::tcp::v4(), SERVER_PORT),
 	service_ = std::make_shared<boost::asio::io_service>();
 	endPoint_ = std::make_shared<boost::asio::ip::tcp::endpoint>(boost::asio::ip::tcp::v4(), SERVER_PORT);
 	acceptor_ = std::make_shared<boost::asio::ip::tcp::acceptor>(*service_, *endPoint_);
@@ -36,11 +35,6 @@ Server::Server(char *argv[])
 
 	board_ = std::make_shared<GameBoard>(mapWidth, mapHeight);
 }
-
-/*
- * returns 0 if invalid value in arg
- * in other cases returns numerical value from arg
- */
 
 uint16_t Server::getNumberFromArg_(char *arg)
 {
@@ -80,10 +74,6 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 		return;
 	}
 	std::lock_guard<std::mutex> dataLock(clientsProtect_);
-//	std::cout << "Accepted new participant with id: " << static_cast<uint32_t>(id) << std::endl;
-//	std::string echoMsg = "You connected to server, your ID is " + std::to_string(id) + Server::MSG_END;
-//	sock->write_some(boost::asio::buffer(echoMsg));
-
 	static uint16_t mapStats[2];
 	mapStats[0] = board_->getHeight();
 	mapStats[1] = board_->getWidth();
@@ -119,7 +109,7 @@ void Server::startGame()
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
-		players_.push_back(snakePtr(new Snake(*board_, botController, {2 * nextClientId_, nextClientId_})));
+		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_, nextClientId_ + 6})));
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
@@ -156,6 +146,6 @@ void Server::startGame()
 			= static_cast<uint8_t>(entityType::food);
 		boardLock.unlock();
 		++fruitAccumulator;
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::this_thread::sleep_for(std::chrono::milliseconds(40));
 	}
 }

@@ -34,13 +34,12 @@ public:
 
 private:
 
-	int fruitGenRate = 0;
+	uint32_t fruitGenRate = 0;
 
 	void clientConnected_(socketPtr sock, clientId id, const boost::system::error_code& err);
 	uint16_t getNumberFromArg_(char* arg);
 
 	constexpr static uint16_t		SERVER_PORT = 4242;
-//	constexpr static char			MSG_END = '\n';
 
 	ioServicePtr					service_ = nullptr;
 	endPointPtr						endPoint_ = nullptr;
