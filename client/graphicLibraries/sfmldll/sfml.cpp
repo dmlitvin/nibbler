@@ -38,10 +38,10 @@ void    draw()
 
     while (window->pollEvent(event))
         if (event.type == sf::Event::EventType::Closed)
-            window->close();
+            exit(EXIT_SUCCESS);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        window->close();
+        exit(EXIT_SUCCESS);
 
     if (window->isOpen())
     {
@@ -77,11 +77,6 @@ void    draw()
             lastPressed = key::NB3;
 
         window->display();
-    }
-    else
-    {
-        destroy();
-        exit(1);
     }
 }
 

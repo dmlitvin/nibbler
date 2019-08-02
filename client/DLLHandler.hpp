@@ -11,7 +11,7 @@
 struct DLLHandler
 {
 
-    explicit DLLHandler(std::string const & libPath, uint8_t, uint8_t);
+    explicit DLLHandler(std::string const & libPath, uint8_t*, uint8_t, uint8_t);
 
     void    init();
     void    setGrid(uint8_t*);
@@ -29,6 +29,7 @@ private:
 
     key         lastPressed = key::RIGHT;
     void        *dllPtr = nullptr;
+    uint8_t     *gridPtr;
     std::string currLib;
 
     std::map<std::string, void*>    functions = {{"init", nullptr},

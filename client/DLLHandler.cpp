@@ -21,16 +21,16 @@ void    DLLHandler::changeLibrary(std::string const &libPath)
 {
     if (libPath == currLib)
         return ;
-    std::cout << "changing dynamic library to " << libPath << std::endl;
 
     destroy();
     dlclose(dllPtr);
-    loadLib(libPath);
 
-    std::cout << "dynamic library changed to " << libPath << std::endl;
+    std::cout << "changing dynamic library to " << libPath << std::endl;
+
+    loadLib(libPath);
     currLib = libPath;
 
-    init();
+    std::cout << "dynamic library changed to " << currLib << std::endl;
 }
 
 void    DLLHandler::destroy()
@@ -40,8 +40,8 @@ void    DLLHandler::destroy()
     std::cout << "destroying window" << std::endl;
 }
 
-DLLHandler::DLLHandler(std::string const &libPath, uint8_t width, uint8_t height)
-: dllPtr(dlopen(libPath.c_str(), RTLD_LAZY)), width(width), height(height), currLib(libPath)
+DLLHandler::DLLHandler(std::string const &libPath, uint8_t* gridPtr, uint8_t width, uint8_t height)
+: width(width), height(height), currLib(""), gridPtr(gridPtr)
 {
     std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
 
@@ -54,22 +54,20 @@ void    DLLHandler::loadLib(const std::string &libPath)
 {
     std::cout << "loading graphic library " << libPath << std::endl;
 
-    if (!(dlopen(libPath.c_str(), RTLD_LAZY)))
+    if (!(dllPtr = dlopen(libPath.c_str(), RTLD_LAZY)))
     {
         std::cerr << dlerror() << std::endl;
         exit(EXIT_FAILURE);
     }
 
     for (auto & strFunc : functions)
-        if (!(strFunc.second = dlsym(dllPtr, strFunc.first.c_str())))
+        if (!(functions[strFunc.first] = dlsym(dllPtr, strFunc.first.c_str())))
             std::cerr << dlerror() << std::endl;
 
     std::cout << "graphic library " << libPath << " loaded" << std::endl;
-}
 
-DLLHandler::~DLLHandler()
-{
-    dlclose(dllPtr);
+    setGrid(gridPtr);
+    init();
 }
 
 key     DLLHandler::getLastPressed()
@@ -79,4 +77,9 @@ key     DLLHandler::getLastPressed()
     static std::map<key, std::string>  keyStr = {{UP, "UP"}, {DOWN, "DOWN"}, {LEFT, "LEFT"}, {RIGHT, "RIGHT"}};
 
     return lastPressed;
+}
+
+DLLHandler::~DLLHandler()
+{
+    dlclose(dllPtr);
 }

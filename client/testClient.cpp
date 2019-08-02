@@ -14,7 +14,7 @@ using socket_ptr = std::shared_ptr<ip::tcp::socket>;
 
 int		main(int argc, char **argv)
 {
-    static const std::string libNames[] = {"sfmldll/sfml", "sfmldll/sfml", "sfmldll/sfml"};
+    static const std::string libNames[] = {"sfmldll/sfml", "ncurses/libncurses", "sfmldll/sfml"};
 	io_service service;
 	ip::tcp::resolver resolver(service);
 	ip::tcp::resolver::query query(argv[1], "4242");
@@ -57,8 +57,7 @@ int		main(int argc, char **argv)
 
 		uint8_t * map = new uint8_t[mapHeight * mapWidth];
 
-		DLLHandler  graphicHandler("graphicLibraries/" + libNames[0] + "NibblerLib.dylib", mapWidth, mapHeight);
-		graphicHandler.init();
+		DLLHandler  graphicHandler("graphicLibraries/" + libNames[1] + "Nibbler.dylib", map, mapWidth, mapHeight);
 		graphicHandler.setGrid(map);
 
 		while (true)
@@ -85,7 +84,7 @@ int		main(int argc, char **argv)
             if (lastKey < key::NB1)
                 keyBuff[0] = keyChar[lastKey];
             else
-                graphicHandler.changeLibrary("graphicLibraries/" + libNames[lastKey - 4] + "NibblerLib.dylib");
+                graphicHandler.changeLibrary("graphicLibraries/" + libNames[lastKey - 4] + "Nibbler.dylib");
 
 //			sock->write_some(buffer("ok", 2));
 //			char prevKey = key[0];

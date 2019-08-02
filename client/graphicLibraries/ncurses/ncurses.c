@@ -74,6 +74,8 @@ enum key     getLastPressed()
     else if (lastPressed == '1')
         return NB1;
     else if (lastPressed == '2')
-        return NB2;
+		return NB2;
+	else if (lastPressed == '3')
+        return NB3;
     return RIGHT;
 }
