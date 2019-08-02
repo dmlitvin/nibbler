@@ -43,6 +43,9 @@ void    draw()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         exit(EXIT_SUCCESS);
 
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        window->close();
+
     if (window->isOpen())
     {
         window->clear();
