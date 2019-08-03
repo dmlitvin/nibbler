@@ -188,5 +188,11 @@ void Server::startGame()
 		boardLock.unlock();
 		++fruitAccumulator;
 		std::this_thread::sleep_for(std::chrono::milliseconds(140));
+		if (players_.empty())
+		{
+			gameOver_ = true;
+			std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+			exit(EXIT_SUCCESS);
+		}
 	}
 }
