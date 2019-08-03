@@ -6,24 +6,19 @@
 #include <ncurses.h>
 #include "DLLHandler.hpp"
 
-//using namespace std;
-const int buff_size = 1000000;
-using namespace boost::asio;
+using socket_ptr = std::shared_ptr<boost::asio::ip::tcp::socket>;
 
-using socket_ptr = std::shared_ptr<ip::tcp::socket>;
-
-int		main(int argc, char **argv)
+int		main(int , char **argv)
 {
     static const std::string libNames[] = {"sfml/libsfml", "ncurses/libncurses", "sdl2/libsdl2"};
-	io_service service;
-	ip::tcp::resolver resolver(service);
-	ip::tcp::resolver::query query(argv[1], "4242");
-	ip::tcp::resolver::iterator iter = resolver.resolve( query);
-	ip::tcp::endpoint ep = *iter;
-	socket_ptr sock(new ip::tcp::socket(service));
-	boost::system::error_code error;
-	uint32_t offset = 0;
-	sock->async_connect(ep, [&service, &sock, &offset](const boost::system::error_code& ec)
+	boost::asio::io_service service;
+	boost::asio::ip::tcp::resolver resolver(service);
+	boost::asio::ip::tcp::resolver::query query(argv[1], "4242");
+	boost::asio::ip::tcp::resolver::iterator iter = resolver.resolve( query);
+	boost::asio::ip::tcp::endpoint ep = *iter;
+	socket_ptr sock(new boost::asio::ip::tcp::socket(service));
+	// boost::system::error_code error;
+	sock->async_connect(ep, [&sock](const boost::system::error_code& ec)
 	{
 		if (ec)
 		{
@@ -36,14 +31,14 @@ int		main(int argc, char **argv)
 
 		boost::system::error_code err;
 		uint16_t mapStats[2];
-		boost::asio::read(*sock, buffer(mapStats, 4), boost::asio::transfer_exactly(4), err);
+		boost::asio::read(*sock, boost::asio::buffer(mapStats, 4), boost::asio::transfer_exactly(4), err);
 		if (err)
 		{
 			std::cout << "err " << err.message() << std::endl;
 			return;
 		}
 
-		boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2), err);
+		boost::asio::write(*sock, boost::asio::buffer("ok", 2), boost::asio::transfer_exactly(2), err);
 		if (err)
 		{
 			std::cout << "err " << err.message() << std::endl;
@@ -59,14 +54,14 @@ int		main(int argc, char **argv)
 
 		while (true)
 		{
-			boost::asio::read(*sock, buffer(map, mapWidth * mapHeight), boost::asio::transfer_exactly(mapWidth * mapHeight), err);
+			boost::asio::read(*sock, boost::asio::buffer(map, mapWidth * mapHeight), boost::asio::transfer_exactly(mapWidth * mapHeight), err);
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
 				return;
 			}
 
-			boost::asio::write(*sock, buffer("ok", 2), boost::asio::transfer_exactly(2), err);
+			boost::asio::write(*sock, boost::asio::buffer("ok", 2), boost::asio::transfer_exactly(2), err);
 			if (err)
 			{
 				std::cout << "err " << err.message() << std::endl;
@@ -89,7 +84,7 @@ int		main(int argc, char **argv)
 			else
 				std::cout << lastKey << std::endl;
 
-			boost::asio::write(*sock, buffer(keyBuff, 1), boost::asio::transfer_exactly(1), err);
+			boost::asio::write(*sock, boost::asio::buffer(keyBuff, 1), boost::asio::transfer_exactly(1), err);
 
 			if (err)
 			{
@@ -100,7 +95,7 @@ int		main(int argc, char **argv)
 			if (buff.empty())
 				buff.resize(2);
 
-			boost::asio::read(*sock, buffer(buff, 2), boost::asio::transfer_exactly(2), err);
+			boost::asio::read(*sock, boost::asio::buffer(buff, 2), boost::asio::transfer_exactly(2), err);
 
 			if (err)
 			{

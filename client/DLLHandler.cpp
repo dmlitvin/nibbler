@@ -43,7 +43,7 @@ void    DLLHandler::destroy()
 }
 
 DLLHandler::DLLHandler(std::string const &libPath, uint8_t* gridPtr, uint8_t width, uint8_t height)
-: width(width), height(height), currLib(""), gridPtr(gridPtr)
+: width(width), height(height), gridPtr(gridPtr), currLib("")
 {
     std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
 

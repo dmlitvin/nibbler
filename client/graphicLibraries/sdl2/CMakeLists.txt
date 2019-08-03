@@ -4,6 +4,8 @@ project(sdl2Nibbler)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra -Werror")
+
 find_package(SDL2 REQUIRED)
 
 add_library(sdl2Nibbler SHARED sdl2.cpp)

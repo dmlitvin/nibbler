@@ -27,9 +27,11 @@ struct DLLHandler
 
 private:
 
+    uint8_t width, height;
+
     key         lastPressed = key::RIGHT;
-    void        *dllPtr = nullptr;
     uint8_t     *gridPtr;
+    void        *dllPtr;
     std::string currLib;
 
     std::map<std::string, void*>    functions = {{"init", nullptr},
@@ -37,7 +39,5 @@ private:
                                                  {"draw", nullptr},
                                                  {"destroy", nullptr},
                                                  {"getLastPressed", nullptr}};
-
-    uint8_t width, height;
 
 };
