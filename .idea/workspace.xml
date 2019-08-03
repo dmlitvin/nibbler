@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/server/Server.hpp" line="35" />
+    <bookmark url="file://$PROJECT_DIR$/server/CMakeLists.txt" line="15" />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="NibblerServer" targetName="NibblerServer" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7dc71003-233e-41a4-b303-01eb1516ae42" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/client/testClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client/testClient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/mergedClientServer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mergedClientServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/ClientController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/ComputerController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/DLLHandler.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/GameBoard.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/Server.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/Snake.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/ClientController.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/ClientController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/ComputerController.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/ComputerController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/DLLHandler.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/DLLHandler.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/GameBoard.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/GameBoard.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/IController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Nibbler" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Server.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Server.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Snake.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/Snake.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/ClientController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/ComputerController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/DLLHandler.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/GameBoard.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/Server.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/Snake.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/Nibbler" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/Nibbler.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/ncurses.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/libncursesNibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/ncurses/ncurses.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/sdl2.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/libsdl2Nibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sdl2/sdl2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/sfml.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/libsfmlNibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/graphicLibraries/sfml/sfml.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/key.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mergedClientServer/testClient.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/ClientController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/ClientController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/Server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Server.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/Server.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/Snake.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/server/Snake.hpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/server/cmake-build-debug/" />
+    <ignored path="$PROJECT_DIR$/server/CMakeFiles/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.49654073">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/CMakeLists.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="72" lean-forward="true" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/ClientController.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="12" selection-start-column="12" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/IController.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" selection-start-line="14" selection-start-column="29" selection-end-line="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server/Server.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1013">
+                  <caret line="141" column="9" lean-forward="true" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/GameBoard.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
+                  <folding>
+                    <element signature="e#14#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/GameBoard.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="9735">
+                  <caret line="649" selection-start-line="649" selection-end-line="649" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3765">
+                  <caret line="251" selection-start-line="251" selection-end-line="251" />
+                  <folding>
+                    <element signature="e#10598#10636#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/main.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1011">
+                  <caret line="81" selection-start-line="81" selection-end-line="82" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/ClientController.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="194">
+                  <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/Server.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#14#34#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server/Snake.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="375">
+                  <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>30</find>
+      <find>read_some</find>
+      <find>write_some</find>
+      <find>read</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/tests.cpp" />
+        <option value="$PROJECT_DIR$/client/testClient.cpp" />
+        <option value="$PROJECT_DIR$/client/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/server/Game.cpp" />
+        <option value="$PROJECT_DIR$/server/Game.hpp" />
+        <option value="$PROJECT_DIR$/server/GameBoard.cpp" />
+        <option value="$PROJECT_DIR$/server/GameBoard.hpp" />
+        <option value="$PROJECT_DIR$/server/some.cpp" />
+        <option value="$PROJECT_DIR$/server/ComputerController.cpp" />
+        <option value="$PROJECT_DIR$/server/ComputerController.hpp" />
+        <option value="$PROJECT_DIR$/server/Snake.cpp" />
+        <option value="$PROJECT_DIR$/server/ClientController.hpp" />
+        <option value="$PROJECT_DIR$/server/tests.cpp" />
+        <option value="$PROJECT_DIR$/server/main.cpp" />
+        <option value="$PROJECT_DIR$/server/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/server/ClientController.cpp" />
+        <option value="$PROJECT_DIR$/server/Server.hpp" />
+        <option value="$PROJECT_DIR$/server/Server.cpp" />
+        <option value="$PROJECT_DIR$/server/Snake.hpp" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/nibbler.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/client/.idea/client.iml" />
+        <option value="$PROJECT_DIR$/server/.idea/server.iml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="2560" />
+    <option name="height" value="1375" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NibblerServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="CMake Application.exec">
+    <configuration name="NibblerServer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NibblerServer" TARGET_NAME="NibblerServer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NibblerServer" RUN_TARGET_NAME="NibblerServer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="exec" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="30 30 2 0" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NibblerServer" TARGET_NAME="NibblerServer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NibblerServer" RUN_TARGET_NAME="NibblerServer">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.NibblerServer" />
+      <item itemvalue="CMake Application.exec" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7dc71003-233e-41a4-b303-01eb1516ae42" name="Default Changelist" comment="" />
+      <created>1563786214213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563786214213</updated>
+      <workItem from="1563786225445" duration="3153000" />
+      <workItem from="1564039897573" duration="12896000" />
+      <workItem from="1564064229212" duration="6258000" />
+      <workItem from="1564388172922" duration="16911000" />
+      <workItem from="1564410037021" duration="4096000" />
+      <workItem from="1564560619959" duration="7905000" />
+      <workItem from="1564738875604" duration="2913000" />
+      <workItem from="1564755926695" duration="2272000" />
+      <workItem from="1564821980463" duration="4117000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="60521000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="2560" height="1375" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.149722" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15042868" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3998441" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.35385814" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.26266563" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25178713" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32969603" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.26266563" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="players_.size()" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>players_[0]-&gt;getLocation().size()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>players_[0]-&gt;getLocation()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>players_.size()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>snake.getLocation()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>snake.getLocation().size()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Server.cpp" />
+    <entry file="file://$PROJECT_DIR$/client/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/testClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Game.cpp" />
+    <entry file="file://$PROJECT_DIR$/server/Game.hpp" />
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="4058" column="17" selection-start-line="4058" selection-start-column="17" selection-end-line="4058" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/type_traits">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="4279" selection-start-line="4279" selection-end-line="4279" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/some.cpp" />
+    <entry file="file://$PROJECT_DIR$/server/ComputerController.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/_types/_uint8_t.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="447" selection-start-line="447" selection-end-line="447" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.brew/include/boost/asio/buffered_read_stream_fwd.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#450#463#0" expanded="true" />
+            <element signature="e#560#577#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.brew/include/boost/asio.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding>
+            <element signature="e#414#427#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.brew/include/boost/asio/basic_stream_socket.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="621" column="77" lean-forward="true" selection-start-line="621" selection-start-column="77" selection-end-line="621" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ComputerController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.brew/include/boost/asio/impl/read.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ClientController.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/IController.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="14" selection-start-column="29" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9735">
+          <caret line="649" selection-start-line="649" selection-end-line="649" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3765">
+          <caret line="251" selection-start-line="251" selection-end-line="251" />
+          <folding>
+            <element signature="e#10598#10636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/GameBoard.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#14#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1011">
+          <caret line="81" selection-start-line="81" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/ClientController.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="72" lean-forward="true" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Snake.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/GameBoard.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Server.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1013">
+          <caret line="141" column="9" lean-forward="true" selection-start-line="141" selection-start-column="9" selection-end-line="141" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Server.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/Snake.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

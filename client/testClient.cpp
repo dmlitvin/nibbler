@@ -14,7 +14,7 @@ using socket_ptr = std::shared_ptr<ip::tcp::socket>;
 
 int		main(int argc, char **argv)
 {
-    static const std::string libNames[] = {"sfmldll/sfml", "ncurses/libncurses", "sdl2/sdl"};
+    static const std::string libNames[] = {"sfml/libsfml", "ncurses/libncurses", "sdl2/libsdl2"};
 	io_service service;
 	ip::tcp::resolver resolver(service);
 	ip::tcp::resolver::query query(argv[1], "4242");

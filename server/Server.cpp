@@ -93,7 +93,7 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	else
 		std::cout << "init ackBuff ok [id: " << id << "]" << std::endl;
 	IController* controller = new ClientController(sock, id);
-	players_.push_back(std::shared_ptr<Snake>(new Snake(*board_, controller, {id, id * 2})));
+	players_.push_back(new Snake(*board_, controller, {id, id * 2}));
 	controllers_.push_back(controller);
 }
 
@@ -109,7 +109,7 @@ void Server::startGame()
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
-		players_.push_back(snakePtr(new Snake(*board_, botController, {nextClientId_, nextClientId_ + 6})));
+		players_.push_back(new Snake(*board_, botController, {nextClientId_, nextClientId_ + 6}));
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
@@ -135,7 +135,8 @@ void Server::startGame()
 				it++;
 			else
 			{
-				deleteSnakeFromMap(it->get()->getLocation(), *board_);
+				deleteSnakeFromMap((*it)->getLocation(), *board_);
+				delete *it;
 				it = players_.erase(it);
 			}
 		}

@@ -12,8 +12,8 @@ struct Snake
     entityType      getType()   const;
     operator        bool()      const;
 
-    virtual void    move();
-    virtual IController* getController();
+    void    move();
+    IController* getController();
 
     const std::vector<cord_t>&  getLocation() const;
 

@@ -1,5 +1,0 @@
-/Users/kpshenyc/.brew/opt/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/kpshenyc/nibbler/mergedClientServer
--- Boost version: 1.70.0
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/kpshenyc/nibbler/mergedClientServer/cmake-build-debug

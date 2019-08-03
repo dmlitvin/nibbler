@@ -16,9 +16,9 @@ std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
 {
 	std::map<uint8_t, char> map = {{0, '.'}, {1, 'F'}, {2, 'B'}, {3, 'S'}, {4, 's'}, {5, 'Z'}, {6, 'z'}};
 
-	for (size_t y = 0; y < board.getHeight(); y++)
+	for (int y = 0; y < board.getHeight(); y++)
 	{
-		for (size_t x = 0; x < board.getWidth(); x++)
+		for (int x = 0; x < board.getWidth(); x++)
 			stream << map[board[y][x]];
 		stream << std::endl;
 	}

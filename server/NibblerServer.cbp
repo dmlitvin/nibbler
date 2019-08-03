@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="NibblerServer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/kpshenyc/nibbler/server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/kpshenyc/nibbler/server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/kpshenyc/nibbler/server"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="NibblerServer">
+				<Option output="/Users/kpshenyc/nibbler/server/NibblerServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/kpshenyc/nibbler/server"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/kpshenyc/.brew/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 NibblerServer"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="NibblerServer/fast">
+				<Option output="/Users/kpshenyc/nibbler/server/NibblerServer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/kpshenyc/nibbler/server"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/kpshenyc/.brew/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 NibblerServer/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/Users/kpshenyc/nibbler/server/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/kpshenyc/nibbler/server/ClientController.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/ClientController.hpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/ComputerController.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/ComputerController.hpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/GameBoard.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/GameBoard.hpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/Server.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/Server.hpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/Snake.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/Snake.hpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/main.cpp">
+			<Option target="NibblerServer"/>
+		</Unit>
+		<Unit filename="/Users/kpshenyc/nibbler/server/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

@@ -11,7 +11,7 @@ void ClientController::setDirectionControl(direction_t& direction) { direction_ 
 
 void ClientController::setGameBoard(const GameBoard& gameBoard) { gameBoard_ = &gameBoard; }
 
-void ClientController::updateDirection(cord_t headPosition)
+void ClientController::updateDirection(cord_t)
 {
 	Key lastPressed = lastPressed_;
 
@@ -56,8 +56,8 @@ void ClientController::sendMap_(boost::system::error_code& err)
 		ackBuff.resize(2);
 
 	auto mapIt = mapBuff.begin();
-	for (size_t i = 0; i < gameBoard_->getHeight(); ++i)
-		for (size_t j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
+	for (int i = 0; i < gameBoard_->getHeight(); ++i)
+		for (int j = 0; j < gameBoard_->getWidth(); ++j, ++mapIt)
 			*mapIt = (*gameBoard_)[{j, i}];
 	boost::asio::write(*sock_, boost::asio::buffer(mapBuff, mapBuff.size()), boost::asio::transfer_exactly(mapBuff.size()), err);
 

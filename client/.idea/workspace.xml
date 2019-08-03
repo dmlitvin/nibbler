@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="NibblerClient" targetName="NibblerClient" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Default" GENERATION_DIR="." />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cc71681-c267-42b1-8c81-3e28636070f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/testClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/testClient.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/mergedClientServer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mergedClientServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/ClientController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/ComputerController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/DLLHandler.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/GameBoard.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/Server.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/Snake.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/ClientController.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/ClientController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/ComputerController.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/ComputerController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/DLLHandler.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/DLLHandler.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/GameBoard.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/GameBoard.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/IController.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Nibbler" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Server.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Server.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Snake.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/Snake.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/ClientController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/ComputerController.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/DLLHandler.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/GameBoard.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/Server.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/Snake.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/Nibbler" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/Nibbler.cbp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/C.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/ncurses.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/ncursesNibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/libncursesNibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/ncurses/ncurses.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir/sdl2.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/libsdl2Nibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sdl2/sdl2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/3.14.5/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/Makefile2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/feature_tests.cxx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/progress.marks" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/DependInfo.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/build.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/cmake_clean.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/depend.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/flags.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/link.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/progress.make" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeFiles/sfmlNibbler.dir/sfml.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/libsfmlNibbler.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/graphicLibraries/sfml/sfml.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/key.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mergedClientServer/testClient.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/ClientController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/ClientController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Server.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Server.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Snake.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Snake.hpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/CMakeFiles/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Default" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testClient.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="84" column="12" lean-forward="true" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/graphicLibraries/sfml/sfml.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="97" column="1" lean-forward="true" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/key.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DLLHandler.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DLLHandler.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1050">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>read_some</find>
+      <find>drwa</find>
+      <find>sett</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/graphicLibraries/sfmldll/sfml.cpp" />
+        <option value="$PROJECT_DIR$/DLLHandler.cpp" />
+        <option value="$PROJECT_DIR$/testClient.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/client.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/../server/.idea/server.iml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="2560" />
+    <option name="height" value="1375" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NibblerClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NibblerClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="graphicLibraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NibblerClient" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="graphicLibraries" type="462c0819:PsiDirectoryNode" />
+              <item name="sfml" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="NibblerClient" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NibblerClient" TARGET_NAME="NibblerClient" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="NibblerClient" RUN_TARGET_NAME="NibblerClient">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cc71681-c267-42b1-8c81-3e28636070f5" name="Default Changelist" comment="" />
+      <created>1563789937981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563789937981</updated>
+      <workItem from="1563789939229" duration="595000" />
+      <workItem from="1564039898953" duration="6863000" />
+      <workItem from="1564064229212" duration="3784000" />
+      <workItem from="1564388171762" duration="12594000" />
+      <workItem from="1564410038038" duration="2467000" />
+      <workItem from="1564560623892" duration="9000" />
+      <workItem from="1564560728169" duration="5960000" />
+      <workItem from="1564650920570" duration="6027000" />
+      <workItem from="1564670860865" duration="605000" />
+      <workItem from="1564738875622" duration="4551000" />
+      <workItem from="1564755927106" duration="2565000" />
+      <workItem from="1564821980763" duration="5353000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="51373000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="2560" height="1375" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12509929" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.208106" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" visible="true" weight="0.32969603" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include/ncurses.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="625" column="27" selection-start-line="625" selection-start-column="27" selection-end-line="625" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.brew/include/boost/asio/basic_stream_socket.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="869" column="14" selection-start-line="869" selection-start-column="14" selection-end-line="869" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphicLibraries/sfmldll/Makefile" />
+    <entry file="file://$PROJECT_DIR$/graphicLibraries/sfmldll/sfml.cpp" />
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/key.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DLLHandler.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DLLHandler.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testClient.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="84" column="12" lean-forward="true" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphicLibraries/sfml/sfml.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="97" column="1" lean-forward="true" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
