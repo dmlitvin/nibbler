@@ -24,6 +24,7 @@ public:
 	using acceptorPtr = std::shared_ptr<boost::asio::ip::tcp::acceptor>;
 
 	explicit Server(char *argv[]);
+	Server() = delete;
 	Server(const Server &rhs) = delete;
 	Server &operator=(const Server &rhs) = delete;
 	~Server() = default;
