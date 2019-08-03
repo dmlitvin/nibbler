@@ -74,16 +74,17 @@ int		main(int argc, char **argv)
 			}
 
             static std::map<key, char>  keyChar = {{key::UP, 'w'}, {key::DOWN, 's'}, {key::LEFT, 'a'}, {key::RIGHT, 'd'}};
+			static std::map<char, key>	charKey = {{'w', key::UP}, {'s', key::DOWN}, {'a', key::LEFT}, {'d', key::RIGHT}};
 
 			key lastKey = graphicHandler.getLastPressed();
             graphicHandler.draw();
+
             if (lastKey < key::NB1)
                 keyBuff[0] = keyChar[lastKey];
             else if (lastKey >= key::NB1 && lastKey <= key::NB3)
 			{
-				graphicHandler.changeLibrary(
-					"graphicLibraries/" + libNames[lastKey - 4] +
-						"Nibbler.dylib");
+				graphicHandler.changeLibrary("graphicLibraries/" + libNames[lastKey - 4] + "Nibbler.dylib", charKey[keyBuff[0]]);
+				lastKey = charKey[keyBuff[0]];
 			}
 			else
 				std::cout << lastKey << std::endl;

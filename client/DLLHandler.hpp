@@ -13,13 +13,13 @@ struct DLLHandler
 
     explicit DLLHandler(std::string const & libPath, uint8_t*, uint8_t, uint8_t);
 
-    void    init();
+    void    init(key);
     void    setGrid(uint8_t*);
     void    draw();
     void    destroy();
-    void    loadLib(const std::string & libPath);
+    void    loadLib(const std::string & libPath, key);
 
-    void    changeLibrary(std::string const & libPath);
+    void    changeLibrary(std::string const & libPath, key);
 
     key     getLastPressed();
 

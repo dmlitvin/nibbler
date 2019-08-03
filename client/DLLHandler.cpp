@@ -13,14 +13,14 @@ void    DLLHandler::setGrid(uint8_t *grid)
 	std::cout << "setGrid() done" << std::endl;
 }
 
-void    DLLHandler::init()
+void    DLLHandler::init(key initKey)
 {
 	std::cout << "ptrInit()..." << std::endl;
-    void(*ptrInit)(uint8_t, uint8_t) = reinterpret_cast<void(*)(uint8_t, uint8_t)>(functions["init"]); ptrInit(width, height);
+    void(*ptrInit)(uint8_t, uint8_t, key) = reinterpret_cast<void(*)(uint8_t, uint8_t, key)>(functions["init"]); ptrInit(width, height, initKey);
     std::cout << "ptrInit() done" << std::endl;
 }
 
-void    DLLHandler::changeLibrary(std::string const &libPath)
+void    DLLHandler::changeLibrary(std::string const &libPath, key initKey)
 {
     if (libPath == currLib)
         return ;
@@ -30,7 +30,7 @@ void    DLLHandler::changeLibrary(std::string const &libPath)
 
     std::cout << "changing dynamic library to " << libPath << std::endl;
 
-    loadLib(libPath);
+    loadLib(libPath, initKey);
 
     std::cout << "dynamic library changed to " << currLib << std::endl;
 }
@@ -47,12 +47,12 @@ DLLHandler::DLLHandler(std::string const &libPath, uint8_t* gridPtr, uint8_t wid
 {
     std::cout << "constructing dllhandler with lib: " << libPath << std::endl;
 
-    loadLib(libPath);
+    loadLib(libPath, key::RIGHT);
 
     std::cout << "lib: " << libPath << " constructed" << std::endl;
 }
 
-void    DLLHandler::loadLib(const std::string &libPath)
+void    DLLHandler::loadLib(const std::string &libPath, key initKey)
 {
     std::cout << "loading graphic library " << libPath << std::endl;
 
@@ -71,7 +71,7 @@ void    DLLHandler::loadLib(const std::string &libPath)
 	currLib = libPath;
 
     setGrid(gridPtr);
-    init();
+    init(initKey);
 }
 
 key     DLLHandler::getLastPressed()

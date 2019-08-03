@@ -27,10 +27,11 @@ namespace
 }
 
 extern "C"
-void    init(uint8_t gridWidth, uint8_t gridHeight)
+void    init(uint8_t gridWidth, uint8_t gridHeight, key initKey)
 {
     ::gridWidth = gridWidth;
     ::gridHeight = gridHeight;
+	::lastPressed = initKey;
 
     window = new sf::RenderWindow(sf::VideoMode(squareSide * gridWidth, squareSide * gridHeight), "sfml Nibbler");
 }

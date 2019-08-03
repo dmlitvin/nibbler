@@ -22,7 +22,9 @@ void ClientController::updateDirection(cord_t headPosition)
 			{Key::UP,	{0, -1}},
 			{Key::DOWN,	{0, 1}}
 		};
-	*direction_ = keyDirection.at(lastPressed);
+	auto futureDirection = keyDirection.at(lastPressed);
+	if (direction_->first + futureDirection.first && direction_->second + futureDirection.second)
+		*direction_ = futureDirection;
 }
 
 void ClientController::run()

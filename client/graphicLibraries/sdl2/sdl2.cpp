@@ -23,24 +23,27 @@ class Window
 	SDL_Window		*window = nullptr;
 	int				closed = false;
 	useconds_t		speed = 35000;
+	key				lastPressed;
 
-	key				lastPressed = key::RIGHT;
 public:
+
 	SDL_Renderer	*renderer = nullptr;
-	Window(std::string name, int width, int height);
+	Window(std::string name, int width, int height, key initKey);
 	useconds_t GetSpeed();
 	bool isClosed();
 	key getLastPressed();
 	void poolEvents();
 	void clear();
 	~Window();
+
 };
 
-Window::Window(std::string name, int width, int height)
+Window::Window(std::string name, int width, int height, key initKey)
 {
 	this->width = width;
 	this->height = height;
 	this->name = name;
+	this->lastPressed = initKey;
 
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -383,10 +386,10 @@ namespace
 }
 
 extern "C"
-void    init(uint8_t gridWidth, uint8_t gridHeight)
+void    init(uint8_t gridWidth, uint8_t gridHeight, key initKey)
 {
 	window = new ::Window("Nibbler [SDL2]", gridWidth * squareSide + stride * gridWidth,
-									gridHeight * squareSide + stride * gridHeight);
+									gridHeight * squareSide + stride * gridHeight, initKey);
 	grid = new ::Grid(window, _2DPoint{ 0, 0 }, (int)gridHeight, (int)gridWidth, squareSide, squareSide, stride);
 
     grid->SetGrid();

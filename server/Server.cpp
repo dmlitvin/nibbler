@@ -146,6 +146,6 @@ void Server::startGame()
 			= static_cast<uint8_t>(entityType::food);
 		boardLock.unlock();
 		++fruitAccumulator;
-		std::this_thread::sleep_for(std::chrono::milliseconds(40));
+		std::this_thread::sleep_for(std::chrono::milliseconds(140));
 	}
 }

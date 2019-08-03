@@ -8,11 +8,11 @@
 static int      screenWidth, screenHeight;
 static uint8_t  *grid = NULL, gridWidth, gridHeight;
 static WINDOW   *win = NULL;
-static char     lastPressed = -1;
+static char     lastPressed;
 
 static const char   *content = ".F?sSzZhHkKiIwWeE";
 
-void    init(uint8_t width, uint8_t height)
+void    init(uint8_t width, uint8_t height, enum key initKey)
 {
     initscr();
     noecho();
@@ -24,6 +24,8 @@ void    init(uint8_t width, uint8_t height)
 
     gridWidth = width;
     gridHeight = height;
+    static const char buttons[] = {'w', 's', 'a', 'd'};
+    lastPressed = buttons[initKey];
 }
 
 void    setGrid(uint8_t *gridParam)
