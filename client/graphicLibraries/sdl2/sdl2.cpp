@@ -6,14 +6,14 @@
 /*   By: kpshenyc <kpshenyc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 13:32:57 by kpshenyc          #+#    #+#             */
-/*   Updated: 2019/08/02 19:59:44 by kpshenyc         ###   ########.fr       */
+/*   Updated: 2019/08/03 11:05:32 by dmlitvin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <string>
 # include "../../key.h"
-# include <SDL2/SDL.h>
+# include <SDL.h>
 
 class Window
 {
