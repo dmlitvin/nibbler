@@ -1,0 +1,3 @@
+/Users/kpshenyc/nibbler/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/rebuild_cache.dir
+/Users/kpshenyc/nibbler/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/edit_cache.dir
+/Users/kpshenyc/nibbler/mergedClientServer/graphicLibraries/sdl2/CMakeFiles/sdl2Nibbler.dir

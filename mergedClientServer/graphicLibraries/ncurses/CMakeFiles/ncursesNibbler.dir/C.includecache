@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kpshenyc/nibbler/mergedClientServer/graphicLibraries/ncurses/ncurses.c
+curses.h
+-
+stdint.h
+-
+stdlib.h
+-
+unistd.h
+-
+../../key.h
+/Users/kpshenyc/nibbler/mergedClientServer/key.h
+
+/Users/kpshenyc/nibbler/mergedClientServer/key.h
+
