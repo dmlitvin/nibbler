@@ -17,4 +17,3 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${CURSES_INCLUDE_DIR})
 
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
-
