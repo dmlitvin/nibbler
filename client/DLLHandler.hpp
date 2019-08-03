@@ -24,6 +24,9 @@ struct DLLHandler
     key     getLastPressed();
 
     ~DLLHandler();
+    DLLHandler() = delete;
+    DLLHandler(const DLLHandler&) = delete;
+    DLLHandler& operator=(const DLLHandler&) = delete;
 
 private:
 

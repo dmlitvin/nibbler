@@ -48,6 +48,7 @@ private:
 
 	clientId						nextClientId_ = 1;
 	clientId						bots_ = 0;
+	clientId						clientsCount = 0;
 	std::mutex						clientsProtect_;
 
 	std::vector<IController*> controllers_;

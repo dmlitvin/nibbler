@@ -2,6 +2,17 @@
 
 std::mutex boardLock;
 
+auto checkNum = [](char *str){
+	for (int i = 0; str[i]; ++i)
+	{
+		if (!isnumber(str[i]))
+		{
+			std::cerr << "Argument has to be only number" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+	}
+};
+
 void    deleteSnakeFromMap(const std::vector<cord_t> & snakeLocation, GameBoard & board)
 {
 	for (const auto & snakeCord : snakeLocation)
@@ -19,17 +30,30 @@ Server::Server(char *argv[])
 	service_ = std::make_shared<boost::asio::io_service>();
 	endPoint_ = std::make_shared<boost::asio::ip::tcp::endpoint>(boost::asio::ip::tcp::v4(), SERVER_PORT);
 	acceptor_ = std::make_shared<boost::asio::ip::tcp::acceptor>(*service_, *endPoint_);
+
+
+	checkNum(argv[0]);
 	uint16_t mapHeight = getNumberFromArg_(argv[0]);
 	if (mapHeight == 0)
 	{
 		std::cerr << "map height cannot be 0" << std::endl;
 		exit(EXIT_FAILURE);
 	}
-
+	if (mapHeight < 20 || mapHeight > 70)
+	{
+		std::cerr << "map height has to be in range 20-70" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	checkNum(argv[1]);
 	uint16_t mapWidth = getNumberFromArg_(argv[1]);
 	if (mapWidth == 0)
 	{
 		std::cerr << "map width cannot be 0" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	if (mapWidth < 20 || mapWidth > 100)
+	{
+		std::cerr << "map width has to be in range 20-100" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 
@@ -51,8 +75,17 @@ uint16_t Server::getNumberFromArg_(char *arg)
 
 void Server::acceptClients(char *argv[])
 {
-	clientId clientsCount = getNumberFromArg_(argv[0]);
+	checkNum(argv[0]);
+	clientsCount = getNumberFromArg_(argv[0]);
+
+	checkNum(argv[1]);
 	bots_ = getNumberFromArg_(argv[1]);
+
+	if (bots_ + clientsCount > 5)
+	{
+		std::cerr << "to much players. max: 5" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 
 	auto clientConnected = std::mem_fn(&Server::clientConnected_);
 	for (clientId i = 0; i < clientsCount; ++i)
@@ -93,7 +126,14 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	else
 		std::cout << "init ackBuff ok [id: " << id << "]" << std::endl;
 	IController* controller = new ClientController(sock, id);
-	players_.push_back(new Snake(*board_, controller, {id, id * 2}));
+	std::cout << clientsCount << " " << bots_ << std::endl;
+	if (clientsCount == 1 && bots_ == 0)
+	{
+		players_.push_back(new Snake(*board_, controller, {board_->getWidth() / 2 - 4, board_->getHeight() / 2 - 1}));
+	}
+	else
+		players_.push_back(new Snake(*board_, controller, {id, id * 2}));
+	
 	controllers_.push_back(controller);
 }
 

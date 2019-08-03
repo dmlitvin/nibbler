@@ -8,13 +8,26 @@
 
 using socket_ptr = std::shared_ptr<boost::asio::ip::tcp::socket>;
 
-int		main(int , char **argv)
+int		main(int argc, char **argv)
 {
+	try{
+	if (argc != 2)
+	{
+		std::cerr << "Usage: ./NibblerClient [domen]" << std::endl;
+		exit(EXIT_FAILURE);
+	}
     static const std::string libNames[] = {"sfml/libsfml", "ncurses/libncurses", "sdl2/libsdl2"};
+	boost::system::error_code error;
 	boost::asio::io_service service;
 	boost::asio::ip::tcp::resolver resolver(service);
 	boost::asio::ip::tcp::resolver::query query(argv[1], "4242");
-	boost::asio::ip::tcp::resolver::iterator iter = resolver.resolve( query);
+
+	boost::asio::ip::tcp::resolver::iterator iter = resolver.resolve( query, error);
+	if (error)
+	{
+		std::cerr << "something went wrong.." << std::endl;
+		exit(EXIT_FAILURE);
+	}
 	boost::asio::ip::tcp::endpoint ep = *iter;
 	socket_ptr sock(new boost::asio::ip::tcp::socket(service));
 	// boost::system::error_code error;
@@ -115,5 +128,10 @@ int		main(int , char **argv)
 #ifdef _WIN32
 	system("pause");
 #endif
+	}
+	catch(...)
+	{
+		std::cerr << "something went wrong" << std::endl;
+	}
 	return 0;
 }

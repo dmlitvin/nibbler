@@ -22,8 +22,7 @@ namespace
 										sf::Color::Red,
 										sf::Color::Yellow,
 										sf::Color::Magenta,
-										sf::Color::Cyan,
-										sf::Color::Transparent	};
+										sf::Color::Cyan	};
 }
 
 extern "C"
@@ -67,7 +66,7 @@ void    draw()
 				rect.setPosition(
 					sf::Vector2f(::squareSide * x, ::squareSide * y));
 				uint8_t blockId = gridPtr[y * gridWidth + x];
-				if (blockId < 8)
+				if (blockId < 7)
 					rect.setFillColor(colors[blockId]);
 				else
 					rect.setFillColor(sf::Color::Blue);
