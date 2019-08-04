@@ -1,6 +1,6 @@
 #!/bin/sh
 
-brew install boost sfml sdl2
+brew install boost sfml sdl2 cmake
 cmake -S server -B server
 cmake -S client -B client
 cmake -S client/graphicLibraries/ncurses -B client/graphicLibraries/ncurses
