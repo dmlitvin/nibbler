@@ -76,19 +76,19 @@ uint16_t Server::getNumberFromArg_(char *arg)
 void Server::acceptClients(char *argv[])
 {
 	checkNum(argv[0]);
-	clientsCount = getNumberFromArg_(argv[0]);
+	clientsCount_ = getNumberFromArg_(argv[0]);
 
 	checkNum(argv[1]);
 	bots_ = getNumberFromArg_(argv[1]);
 
-	if (bots_ + clientsCount > 5)
+	if (bots_ + clientsCount_ > 5)
 	{
 		std::cerr << "to much players. max: 5" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 
 	auto clientConnected = std::mem_fn(&Server::clientConnected_);
-	for (clientId i = 0; i < clientsCount; ++i)
+	for (clientId i = 0; i < clientsCount_; ++i)
 	{
 		socketPtr newClientSock = std::make_shared<boost::asio::ip::tcp::socket>(*service_);
 		clientId newClientId = nextClientId_++;
@@ -126,13 +126,13 @@ void Server::clientConnected_(socketPtr sock, clientId id, const boost::system::
 	else
 		std::cout << "init ackBuff ok [id: " << id << "]" << std::endl;
 	IController* controller = new ClientController(sock, id);
-	std::cout << clientsCount << " " << bots_ << std::endl;
-	if (clientsCount == 1 && bots_ == 0)
+	std::cout << clientsCount_ << " " << bots_ << std::endl;
+	if (clientsCount_ == 1 && bots_ == 0)
 	{
-		players_.push_back(new Snake(*board_, controller, {board_->getWidth() / 2 - 4, board_->getHeight() / 2 - 1}));
+		players_.push_back(std::make_shared<Snake>(*board_, controller, make_cord_t(board_->getWidth() / 2 - 4, board_->getHeight() / 2 - 1)));
 	}
 	else
-		players_.push_back(new Snake(*board_, controller, {id, id * 2}));
+		players_.push_back(std::make_shared<Snake>(*board_, controller, make_cord_t(id, id * 2)));
 	
 	controllers_.push_back(controller);
 }
@@ -149,7 +149,8 @@ void Server::startGame()
 	for (clientId i = 0; i < bots_; ++i)
 	{
 		IController* botController = new ComputerController();
-		players_.push_back(new Snake(*board_, botController, {nextClientId_, nextClientId_ + 6}));
+		players_.emplace_back(std::make_shared<Snake>(*board_, botController, make_cord_t(nextClientId_, nextClientId_ + 6 )));
+//		players_.push_back(new Snake(*board_, botController, {nextClientId_, nextClientId_ + 6}));
 		controllers_.push_back(botController);
 		++nextClientId_;
 	}
@@ -181,7 +182,6 @@ void Server::startGame()
 			else
 			{
 				deleteSnakeFromMap((*it)->getLocation(), *board_);
-				delete *it;
 				it = players_.erase(it);
 			}
 		}

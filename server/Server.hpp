@@ -17,7 +17,7 @@ class Server
 public:
 	using socketPtr = std::shared_ptr<boost::asio::ip::tcp::socket>;
 	using clientId = uint16_t;
-	using snakePtr = Snake*;
+	using snakePtr = std::shared_ptr<Snake>;
 	using boardPtr = std::shared_ptr<GameBoard>;
 	using ioServicePtr = std::shared_ptr<boost::asio::io_service>;
 	using endPointPtr = std::shared_ptr<boost::asio::ip::tcp::endpoint>;
@@ -48,7 +48,7 @@ private:
 
 	clientId						nextClientId_ = 1;
 	clientId						bots_ = 0;
-	clientId						clientsCount = 0;
+	clientId						clientsCount_ = 0;
 	std::mutex						clientsProtect_;
 
 	std::vector<IController*> controllers_;
