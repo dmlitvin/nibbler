@@ -1,15 +1,20 @@
-cmake_minimum_required(VERSION 3.9)
+set(SDL2_LIB "sdl2Nibbler")
 
-project(sdl2Nibbler)
+set(SRCS sdl2.cpp Window.cpp Grid.cpp)
 
-set(CMAKE_CXX_STANDARD 11)
+add_library(${SDL2_LIB} SHARED)
+target_sources(${SDL2_LIB}
+		PRIVATE ${SRCS})
 
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra -Werror")
+target_compile_features(${SDL2_LIB}
+		PRIVATE cxx_std_17)
+target_compile_options(${SDL2_LIB}
+		PRIVATE -Wall
+		PRIVATE -Wextra
+		PRIVATE -Werror)
 
-find_package(SDL2 REQUIRED)
+target_link_libraries(${SDL2_LIB}
+		PRIVATE ${SDL2_LIBRARIES})
 
-add_library(sdl2Nibbler SHARED sdl2.cpp Window.cpp Grid.cpp)
-
-include_directories(${SDL2_INCLUDE_DIRS})
-
-target_link_libraries(sdl2Nibbler ${SDL2_LIBRARIES})
+target_include_directories(${SDL2_LIB}
+		PRIVATE ${SDL2_INCLUDE_DIRS})

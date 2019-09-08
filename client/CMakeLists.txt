@@ -1,21 +1,25 @@
-cmake_minimum_required(VERSION 3.14)
+set(CLIENT_EXECUTABLE_NAME "${PROJECT_NAME}_client")
 
-project(NibblerClient)
+message(STATUS "Client executable name: ${CLIENT_EXECUTABLE_NAME}")
 
-set(CMAKE_CXX_STANDARD 17)
+set(SRCS testClient.cpp DLLHandler.cpp)
 
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra -Werror")
+add_executable(${CLIENT_EXECUTABLE_NAME})
+target_sources(${CLIENT_EXECUTABLE_NAME}
+	PRIVATE ${SRCS})
 
-set(srcs testClient.cpp DLLHandler.cpp)
+target_compile_features(${CLIENT_EXECUTABLE_NAME}
+	PRIVATE cxx_std_17)
 
-find_package(SFML 2.5 REQUIRED system window graphics)
-find_package(Boost REQUIRED)
-find_package(Curses REQUIRED)
+target_compile_options(${CLIENT_EXECUTABLE_NAME}
+	PRIVATE -Wall
+	PRIVATE -Wextra
+	PRIVATE -Werror)
 
-add_executable(${PROJECT_NAME} ${srcs})
+target_link_libraries(${CLIENT_EXECUTABLE_NAME} PRIVATE ${CURSES_LIBRARIES})
+target_include_directories(${CLIENT_EXECUTABLE_NAME} PRIVATE ${CURSES_INCLUDE_DIR})
 
-target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${CURSES_INCLUDE_DIR})
+target_link_libraries(${CLIENT_EXECUTABLE_NAME} PRIVATE ${Boost_LIBRARIES})
+target_include_directories(${CLIENT_EXECUTABLE_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
 
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
+add_subdirectory(graphicLibraries)

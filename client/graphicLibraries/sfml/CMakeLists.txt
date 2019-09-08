@@ -1,15 +1,26 @@
-cmake_minimum_required(VERSION 3.9)
 
-project(sfmlNibbler)
+#include_directories(${SFML_INCLUDE_DIR})
 
-set(CMAKE_CXX_STANDARD 11)
+set(SRCS sfml.cpp)
 
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-Wall -Wextra -Werror")
+set(SFML_LIB "sfmlNibbler")
 
-find_package(SFML COMPONENTS window graphics system REQUIRED)
+add_library(${SFML_LIB} SHARED)
+target_sources(${SFML_LIB}
+		PRIVATE ${SRCS})
 
-include_directories(${SFML_INCLUDE_DIR})
+target_compile_features(${SFML_LIB}
+		PRIVATE cxx_std_17)
+target_compile_options(${SFML_LIB}
+		PRIVATE -Wall
+		PRIVATE -Wextra
+		PRIVATE -Werror)
 
-add_library(sfmlNibbler SHARED sfml.cpp)
+target_link_libraries(${SFML_LIB}
+		PRIVATE sfml-graphics
+		PRIVATE sfml-window
+		PRIVATE sfml-system)
 
-target_link_libraries(sfmlNibbler sfml-graphics sfml-window sfml-system)
+target_include_directories(${SFML_LIB}
+		PRIVATE ${SFML_INCLUDE_DIR})
+

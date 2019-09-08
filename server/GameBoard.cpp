@@ -26,7 +26,7 @@ std::ostream&   operator<<(std::ostream& stream, const GameBoard& board)
 	return stream << std::endl;
 }
 
-cord_t make_cord_t(uint8_t first, uint8_t second)
+cord_t make_cord_t(uint8_t first, uint8_t second) noexcept
 {
 	return std::make_pair(first, second);
 }

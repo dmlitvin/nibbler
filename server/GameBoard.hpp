@@ -10,7 +10,7 @@ enum class entityType
 
 using cord_t = std::pair<uint8_t, uint8_t>;
 
-cord_t make_cord_t(uint8_t first, uint8_t second);
+cord_t make_cord_t(uint8_t first, uint8_t second) noexcept ;
 
 struct GameBoard
 {

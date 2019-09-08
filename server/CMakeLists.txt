@@ -1,16 +1,19 @@
-cmake_minimum_required(VERSION 3.14)
+set(SERVER_EXECUTABLE_NAME "${PROJECT_NAME}_server")
+set(SRCS Server.cpp ClientController.cpp Snake.cpp GameBoard.cpp main.cpp ComputerController.cpp)
 
-project(NibblerServer)
+message(STATUS "Server executable name: ${SERVER_EXECUTABLE_NAME}")
 
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror")
+add_executable(${SERVER_EXECUTABLE_NAME})
 
-set(CMAKE_CXX_STANDARD 17)
+target_compile_features(${SERVER_EXECUTABLE_NAME}
+		PRIVATE cxx_std_17)
+target_compile_options(${SERVER_EXECUTABLE_NAME}
+		PRIVATE -Wall
+		PRIVATE -Wextra
+		PRIVATE -Werror)
 
-set(srcs Server.cpp ClientController.cpp Snake.cpp GameBoard.cpp main.cpp ComputerController.cpp)
+target_sources(${SERVER_EXECUTABLE_NAME}
+		PRIVATE ${SRCS})
 
-find_package(Boost REQUIRED)
-
-add_executable(${PROJECT_NAME} ${srcs})
-
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS})
+target_link_libraries(${SERVER_EXECUTABLE_NAME} PRIVATE ${Boost_LIBRARIES})
+target_include_directories(${SERVER_EXECUTABLE_NAME} PRIVATE ${Boost_INCLUDE_DIRS})

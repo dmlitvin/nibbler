@@ -7,7 +7,6 @@
 
 static int      screenWidth, screenHeight;
 static uint8_t  *grid = NULL, gridWidth, gridHeight;
-static WINDOW   *win = NULL;
 static char     lastPressed;
 
 static const char   *content = ".F?sSzZhHkKiIwWeE";
