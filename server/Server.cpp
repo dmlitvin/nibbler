@@ -157,9 +157,14 @@ void Server::startGame()
 	for (const auto & snake : players_)
 		putSnakeToMap(*snake, *board_);
 
-	int fruitAccumulator = 0;
+	if (players_.size() == 0)
+	{
+		std::cerr << "Total amount of players cannot be 0" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 	fruitGenRate = (1.0 / static_cast<double>(players_.size())) * 100.0;
 
+	int fruitAccumulator = 0;
 	while (!gameOver_)
 	{
 		boardLock.lock();
