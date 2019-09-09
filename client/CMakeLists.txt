@@ -1,3 +1,5 @@
+find_package(Boost REQUIRED)
+
 set(CLIENT_EXECUTABLE_NAME "${PROJECT_NAME}_client")
 
 message(STATUS "Client executable name: ${CLIENT_EXECUTABLE_NAME}")

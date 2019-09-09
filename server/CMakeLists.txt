@@ -1,3 +1,5 @@
+find_package(Boost REQUIRED)
+
 set(SERVER_EXECUTABLE_NAME "${PROJECT_NAME}_server")
 set(SRCS Server.cpp ClientController.cpp Snake.cpp GameBoard.cpp main.cpp ComputerController.cpp)
 

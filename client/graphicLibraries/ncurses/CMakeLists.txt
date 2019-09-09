@@ -1,3 +1,5 @@
+find_package(Curses REQUIRED)
+
 set(NCURSES_LIB "ncursesNibbler")
 set(SRCS ncurses.c)
 

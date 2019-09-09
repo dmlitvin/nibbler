@@ -1,3 +1,4 @@
+find_package(SFML COMPONENTS window graphics system REQUIRED)
 
 #include_directories(${SFML_INCLUDE_DIR})
 

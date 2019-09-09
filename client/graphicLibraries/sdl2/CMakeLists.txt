@@ -1,3 +1,5 @@
+find_package(SDL2 REQUIRED)
+
 set(SDL2_LIB "sdl2Nibbler")
 
 set(SRCS sdl2.cpp Window.cpp Grid.cpp)
