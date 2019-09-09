@@ -1,7 +1,7 @@
 find_package(Curses REQUIRED)
 
 set(NCURSES_LIB "ncursesNibbler")
-set(SRCS ncurses.c)
+set(SRCS ncurses.cpp)
 
 add_library(${NCURSES_LIB} SHARED)
 target_sources(${NCURSES_LIB}

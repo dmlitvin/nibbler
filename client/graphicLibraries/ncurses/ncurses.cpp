@@ -3,14 +3,21 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include <map>
+#include <list>
+
 #include "../../key.h"
 
-static int      screenWidth, screenHeight;
-static uint8_t  *grid = NULL, gridWidth, gridHeight;
-static char     lastPressed;
+namespace
+{
+    int      screenWidth, screenHeight;
+    uint8_t  *grid = NULL, gridWidth, gridHeight;
+    char     lastPressed;
 
-static const char   *content = ".F?sSzZhHkKiIwWeE";
+    const char   *content = ".F?sSzZhHkKiIwWeE";
+}
 
+extern "C"
 void    init(uint8_t width, uint8_t height, enum key initKey)
 {
     initscr();
@@ -27,11 +34,13 @@ void    init(uint8_t width, uint8_t height, enum key initKey)
     lastPressed = buttons[initKey];
 }
 
+extern "C"
 void    setGrid(uint8_t *gridParam)
 {
     grid = gridParam;
 }
 
+extern "C"
 void    destroy()
 {
     curs_set(TRUE);
@@ -39,10 +48,12 @@ void    destroy()
     endwin();
 }
 
+extern "C"
 void    draw()
 {
+    static const std::list<char>    buttonList = {'w', 'a', 's', 'd', '1', '2', '3'};
     char ch = getch();
-    if (ch != -1)
+    if (std::find(buttonList.begin(), buttonList.end(), ch) != buttonList.end())
         lastPressed = ch;
 
     if (ch == 27)
@@ -62,21 +73,22 @@ void    draw()
     usleep(10);
 }
 
+extern "C"
 enum key     getLastPressed()
 {
-    if (lastPressed == 'd')
+    static const std::map<char, enum key>   char_key = {{'d', RIGHT},
+                                                        {'a', LEFT},
+                                                        {'w', UP},
+                                                        {'s', DOWN},
+                                                        {'1', NB1},
+                                                        {'2', NB2},
+                                                        {'3', NB3}};
+    try
+    {
+        return char_key.at(lastPressed);
+    }
+    catch(...)
+    {
         return RIGHT;
-    else if (lastPressed == 'a')
-        return LEFT;
-    else if (lastPressed == 'w')
-        return UP;
-    else if (lastPressed == 's')
-        return DOWN;
-    else if (lastPressed == '1')
-        return NB1;
-    else if (lastPressed == '2')
-		return NB2;
-	else if (lastPressed == '3')
-        return NB3;
-    return RIGHT;
+    }
 }
