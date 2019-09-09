@@ -1,6 +1,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <map>
 #include "../../key.h"
 
 namespace
@@ -73,20 +74,17 @@ void    draw()
 				window->draw(rect);
 			}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			lastPressed = key::LEFT;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			lastPressed = key::RIGHT;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-			lastPressed = key::DOWN;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			lastPressed = key::UP;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
-			lastPressed = key::NB1;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-			lastPressed = key::NB2;
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
-			lastPressed = key::NB3;
+		std::map<sf::Keyboard::Key, key>	keyArray = {{sf::Keyboard::A, key::LEFT},
+														{sf::Keyboard::D, key::RIGHT},
+														{sf::Keyboard::S, key::DOWN},
+														{sf::Keyboard::W, key::UP},
+														{sf::Keyboard::Num1, key::NB1},
+														{sf::Keyboard::Num2, key::NB2},
+														{sf::Keyboard::Num3, key::NB3}};
+
+		for (const auto & keyPair : keyArray)
+			if (sf::Keyboard::isKeyPressed(keyPair.first))
+				lastPressed = keyPair.second;
 
 		window->display();
 	}
