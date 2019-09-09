@@ -159,7 +159,7 @@ void Server::startGame()
 
 	for (int y = 0; y < board_->getHeight(); y++)
 		for (int x = 0; x < board_->getWidth(); x++)
-			if (rand() % 50 == 0)
+			if (rand() % 150 == 0)
 				board_->operator[]({x, y}) = static_cast<uint8_t>(entityType::block);
 
 	/**/
